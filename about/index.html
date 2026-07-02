@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — FutureReady Advisors | Growth Strategy Partners</title>
+<meta name="description" content="Meet the FutureReady Advisors team: Robert Goldberg (Growth Strategy), Jack Lee (Operations), and Hoel Bautista (AI & Technology). Over 100 years combined experience helping companies scale from $2M to $50M.">
+<meta name="keywords" content="growth strategy partners, business consulting team, AI transformation experts, revenue growth consultants, founder advisors">
+<meta name="author" content="FutureReady Advisors">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="US">
+<meta name="geo.placename" content="Nationwide">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About — FutureReady Advisors | Growth Strategy Partners">
+<meta property="og:description" content="Meet our team of growth strategy specialists with over 100 years combined experience.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://futureready-nova.vercel.app/about">
+<meta property="og:image" content="https://futureready-nova.vercel.app/logo-v2.jpg">
+<meta property="og:site_name" content="FutureReady Advisors">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — FutureReady Advisors | Growth Strategy Partners">
+<meta name="twitter:description" content="Meet our team of growth strategy specialists with over 100 years combined experience.">
+<meta name="twitter:image" content="https://futureready-nova.vercel.app/logo-v2.jpg">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://futureready-nova.vercel.app/about">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About FutureReady Advisors",
+  "description": "Meet the FutureReady Advisors team of growth strategy specialists.",
+  "url": "https://futureready-nova.vercel.app/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "FutureReady Advisors",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Robert Goldberg",
+        "jobTitle": "Partner - Growth Strategy",
+        "image": "https://futureready-nova.vercel.app/team/robert.jpg"
+      },
+      {
+        "@type": "Person",
+        "name": "Jack Lee",
+        "jobTitle": "Partner - Marketing, Operations & Execution",
+        "image": "https://futureready-nova.vercel.app/team/jack.jpg"
+      },
+      {
+        "@type": "Person",
+        "name": "Hoel Bautista",
+        "jobTitle": "Partner - AI, Technology & Digital Transformation",
+        "image": "https://futureready-nova.vercel.app/team/hoel.png"
+      }
+    ]
+  }
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container-narrow{max-width:680px;margin:0 auto;padding:0 24px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid #f0f0f0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{height:36px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:.875rem;font-weight:500;color:#737373;text-decoration:none;transition:color .3s;position:relative}
+.nav-links a:hover{color:#1a1a1a}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:#c25e00;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.page-header{padding:140px 0 80px;background:#fafafa;text-align:center}
+.page-header h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:16px;letter-spacing:-.02em}
+.page-header p{color:#737373;font-size:1.125rem}
+.section{padding:100px 0}
+.section-alt{background:#fafafa}
+.section-label{font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#c25e00;margin-bottom:20px}
+.section h2{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:28px}
+.section h2 span{color:#a3a3a3;font-weight:500}
+.section p{font-size:1.0625rem;color:#525252;line-height:1.7;margin-bottom:20px}
+.team-card{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:40px;background:#fff;border:1px solid #e5e5e5;border-radius:12px;margin-bottom:24px;transition:all .3s}
+.team-card:hover{border-color:#c25e00;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.team-photo{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px}
+.team-name{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.team-title{font-size:1rem;color:#737373;margin-bottom:16px}
+.team-skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.team-skill{padding:6px 14px;background:#f5f5f5;color:#525252;font-size:.8125rem;border-radius:9999px;font-weight:500}
+.team-bio{font-size:1rem;color:#525252;line-height:1.7;margin-bottom:20px}
+.team-linkedin{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#0077b5;color:#fff;font-size:.875rem;font-weight:500;border-radius:8px;text-decoration:none;transition:all .3s}
+.team-linkedin:hover{background:#005885}
+.case-study{padding:36px;background:#fff;border:1px solid #e5e5e5;border-radius:12px;margin-bottom:20px}
+.case-study h3{font-size:1.25rem;font-weight:600;margin-bottom:12px;color:#1a1a1a}
+.case-study p{color:#525252;margin:0;font-size:1rem;line-height:1.6}
+.case-study p strong{color:#1a1a1a}
+.case-meta{font-size:.875rem;color:#c25e00;font-weight:600;margin-bottom:8px}
+.outcomes-list{list-style:none;padding:0;margin:16px 0 0}
+.outcomes-list li{font-size:.9375rem;color:#525252;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px}
+.outcomes-list li::before{content:'→';color:#c25e00;flex-shrink:0;font-weight:600}
+.results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.result-item{padding:20px;background:#fff5eb;border-radius:8px}
+.result-number{font-size:1.5rem;font-weight:700;color:#c25e00;margin-bottom:4px}
+.result-label{font-size:.875rem;color:#525252}
+.scroll-top{position:fixed;bottom:32px;right:32px;width:48px;height:48px;background:#1a1a1a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:100;border:none;font-size:1.25rem;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.scroll-top.visible{opacity:1;visibility:visible}
+.scroll-top:hover{background:#c25e00;transform:translateY(-2px)}
+footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand-text{font-size:1.125rem;font-weight:600}
+.footer-desc{font-size:.9375rem;color:#a3a3a3;line-height:1.6;max-width:300px}
+.footer-links-title{font-size:.6875rem;font-weight:600;text-transform:uppercase;color:#737373;margin-bottom:16px;letter-spacing:.1em}
+.footer-links{list-style:none;padding:0}
+.footer-links li{margin-bottom:10px}
+.footer-links a{color:#a3a3a3;text-decoration:none;font-size:.9375rem;transition:color .3s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{padding-top:24px;border-top:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:.8125rem;color:#737373}
+@media(max-width:768px){
+.team-card{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;gap:32px}
+.scroll-top{bottom:20px;right:20px}
+.results-grid{grid-template-columns:1fr}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><div class="container-wide nav-inner">
+<a href="/" class="logo"><img src="/logo-v2.jpg" alt="FutureReady Advisors" style="height:40px"></a>
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/services">Services</a>
+<a href="/contact">Contact</a>
+</div>
+</div></nav>
+
+<main>
+<header class="page-header"><div class="container-narrow">
+<h1>About Us</h1>
+<p>Growth Systems for Ambitious Leaders</p>
+</div></header>
+
+<section class="section"><div class="container-narrow">
+<p class="section-label">Who We Are</p>
+<h2>We do not operate like a generalist consulting firm.</h2>
+<p>FutureReady Advisors is a partnership of three specialists: Robert Goldberg (Growth Strategy), Jack Lee (Operations & Execution), and Hoel Bautista (AI & Technology).</p>
+<p>We work on the system that determines whether growth compounds — or stalls. Our clients are founder-led companies between $2M and $50M in revenue.</p>
+<p><strong>Combined we have over 100 years of combined experience.</strong></p>
+</div></section>
+
+<section class="section section-alt"><div class="container-narrow">
+<p class="section-label">The Team</p>
+<h2>Three partners. One shared conviction.</h2>
+
+<article class="team-card">
+<img src="/team/robert.jpg" alt="Robert Goldberg - Partner, Growth Strategy at FutureReady Advisors" class="team-photo">
+<div>
+<h3 class="team-name">Robert Goldberg</h3>
+<p class="team-title">Partner · Growth Strategy</p>
+<div class="team-skills">
+<span class="team-skill">Growth Architecture</span>
+<span class="team-skill">Revenue Systems</span>
+<span class="team-skill">Leadership Alignment</span>
+</div>
+<p class="team-bio">Decades of experience helping founder-led companies move from strategic confusion to disciplined execution.</p>
+<a href="https://www.linkedin.com/in/robgoldberg" target="_blank" rel="noopener noreferrer" class="team-linkedin">View LinkedIn Profile</a>
+</div>
+</article>
+
+<article class="team-card">
+<img src="/team/jack.jpg" alt="Jack Lee - Partner, Marketing & Operations at FutureReady Advisors" class="team-photo">
+<div>
+<h3 class="team-name">Jack Lee</h3>
+<p class="team-title">Partner · Marketing, Operations & Execution</p>
+<div class="team-skills">
+<span class="team-skill">Marketing Systems</span>
+<span class="team-skill">Operational Excellence</span>
+<span class="team-skill">Process Design</span>
+</div>
+<p class="team-bio">Jack builds the operational infrastructure that turns strategy into results.</p>
+<a href="https://www.linkedin.com/in/jkleemktgii" target="_blank" rel="noopener noreferrer" class="team-linkedin">View LinkedIn Profile</a>
+</div>
+</article>
+
+<article class="team-card">
+<img src="/team/hoel.png" alt="Hoel Bautista - Partner, AI & Technology at FutureReady Advisors" class="team-photo">
+<div>
+<h3 class="team-name">Hoel Bautista</h3>
+<p class="team-title">Partner · AI, Technology & Digital Transformation</p>
+<div class="team-skills">
+<span class="team-skill">AI Strategy & Governance</span>
+<span class="team-skill">Digital Workforce Design</span>
+<span class="team-skill">AEO/GEO/SEO Architecture</span>
+</div>
+<p class="team-bio">30+ years of enterprise technology leadership across Wall Street, asset management, and pharma.</p>
+<a href="https://www.linkedin.com/in/hoelbautista" target="_blank" rel="noopener noreferrer" class="team-linkedin">View LinkedIn Profile</a>
+</div>
+</article>
+</div></section>
+
+<section class="section"><div class="container-narrow">
+<p class="section-label">Case Studies</p>
+<h2>Real results from real engagements.</h2>
+
+<article class="case-study">
+<p class="case-meta">Professional Services</p>
+<h3>Accelerating Growth for a Regional Professional Services Firm</h3>
+<p><strong>Challenge:</strong> A growing advisory firm struggled with inconsistent business development, limited visibility into its sales pipeline, and increasing competitive pressure.</p>
+<p><strong>Our Engagement:</strong> FutureReady Advisors aligned leadership around a unified growth strategy, redesigned the firm's revenue process, and implemented AI-assisted sales and marketing workflows.</p>
+<p><strong>Business Outcomes:</strong></p>
+<ul class="outcomes-list">
+<li>32% increase in qualified opportunities</li>
+<li>Shorter sales cycles</li>
+<li>Improved forecast accuracy</li>
+<li>Leadership gained clear visibility into revenue performance</li>
+</ul>
+</article>
+
+<article class="case-study">
+<p class="case-meta">Technology Services</p>
+<h3>Building a Scalable Revenue Engine for a Technology Services Company</h3>
+<p><strong>Challenge:</strong> Despite delivering excellent technical work, the company relied almost entirely on referrals and lacked a repeatable growth process.</p>
+<p><strong>Our Engagement:</strong> We developed a scalable go-to-market strategy, modernized demand generation, introduced AI-powered sales enablement, and established executive performance dashboards.</p>
+<p><strong>Business Outcomes:</strong></p>
+<ul class="outcomes-list">
+<li>Increased qualified lead generation</li>
+<li>More predictable revenue pipeline</li>
+<li>Improved sales productivity</li>
+<li>Stronger alignment between sales, marketing, and operations</li>
+</ul>
+</article>
+
+<article class="case-study">
+<p class="case-meta">Industrial Services</p>
+<h3>Improving Operational Performance for an Industrial Services Provider</h3>
+<p><strong>Challenge:</strong> Rapid growth created scheduling bottlenecks, inconsistent project execution, and declining profit margins.</p>
+<p><strong>Our Engagement:</strong> FutureReady Advisors redesigned operational workflows, introduced KPI-driven management systems, and identified AI opportunities to improve planning and resource utilization.</p>
+<p><strong>Business Outcomes:</strong></p>
+<ul class="outcomes-list">
+<li>Increased operational efficiency</li>
+<li>Improved project profitability</li>
+<li>Better workforce utilization</li>
+<li>Higher customer satisfaction through consistent delivery</li>
+</ul>
+</article>
+
+<article class="case-study">
+<p class="case-meta">Specialty Manufacturers</p>
+<h3>Modernizing Growth for a Specialty Manufacturing Company</h3>
+<p><strong>Challenge:</strong> The manufacturer faced rising costs, supply chain uncertainty, and increasing global competition while relying on outdated sales processes.</p>
+<p><strong>Our Engagement:</strong> We aligned strategic planning with revenue execution, implemented AI-assisted market analysis, and developed a digital growth roadmap focused on higher-value customers.</p>
+<p><strong>Business Outcomes:</strong></p>
+<ul class="outcomes-list">
+<li>Improved sales pipeline quality</li>
+<li>Higher production visibility</li>
+<li>Better strategic decision making</li>
+<li>Increased profitability through improved customer targeting</li>
+</ul>
+</article>
+
+<article class="case-study">
+<p class="case-meta">Distribution Services</p>
+<h3>Creating a Data-Driven Distribution Organization</h3>
+<p><strong>Challenge:</strong> The distributor managed thousands of products but lacked actionable business intelligence, resulting in inventory inefficiencies and missed revenue opportunities.</p>
+<p><strong>Our Engagement:</strong> FutureReady Advisors integrated operational metrics, revenue analytics, and AI-powered reporting into executive decision-making while improving customer acquisition strategies.</p>
+<p><strong>Business Outcomes:</strong></p>
+<ul class="outcomes-list">
+<li>Better inventory optimization</li>
+<li>Improved customer retention</li>
+<li>Faster executive decision making</li>
+<li>Increased revenue from existing accounts</li>
+</ul>
+</article>
+</div></section>
+
+<section class="section section-alt"><div class="container-narrow">
+<p class="section-label">Typical Client Outcomes</p>
+<h2>Organizations working with FutureReady Advisors commonly achieve:</h2>
+
+<div class="results-grid">
+<div class="result-item">
+<div class="result-number">20–40%</div>
+<div class="result-label">Improvement in sales pipeline quality</div>
+</div>
+<div class="result-item">
+<div class="result-number">Faster</div>
+<div class="result-label">Executive decision making through AI-enabled insights</div>
+</div>
+<div class="result-item">
+<div class="result-number">Stronger</div>
+<div class="result-label">Alignment between strategy and execution</div>
+</div>
+<div class="result-item">
+<div class="result-number">Increased</div>
+<div class="result-label">Operational efficiency</div>
+</div>
+<div class="result-item">
+<div class="result-number">More</div>
+<div class="result-label">Predictable revenue growth</div>
+</div>
+<div class="result-item">
+<div class="result-number">Improved</div>
+<div class="result-label">Leadership accountability</div>
+</div>
+<div class="result-item">
+<div class="result-number">Greater</div>
+<div class="result-label">Organizational readiness for AI adoption</div>
+</div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="container-narrow">
+<div class="footer-grid">
+<div>
+<div class="footer-brand">
+<span class="footer-brand-text">FutureReady<span style="font-size:.875rem;color:#a3a3a3;margin-left:6px">Advisors</span></span>
+</div>
+<p class="footer-desc">Growth Strategy · Execution Architecture · AI Transformation</p>
+</div>
+<div>
+<p class="footer-links-title">Navigation</p>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/services">Services</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</div>
+<div>
+<p class="footer-links-title">Contact</p>
+<ul class="footer-links">
+<li>Nationwide</li>
+<li><a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-copy">© 2026 FutureReady Advisors. All rights reserved.</p>
+</div>
+</div></footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const scrollTopBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{
+if(window.scrollY>300){scrollTopBtn.classList.add('visible');}
+else{scrollTopBtn.classList.remove('visible');}
+});
+</script>
+</body>
+</html>
