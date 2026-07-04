@@ -97,7 +97,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 <a href="/about">About</a>
 <a href="/services">Services</a>
 <a href="/contact">Contact</a>
-<a href="/contact" class="nav-cta">Book a Strategy Session</a>
+<a href="/contact" class="nav-cta">Find Your Biggest Performance Opportunity</a>
 </div>
 </div></nav>
 <main>
@@ -148,7 +148,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 <label class="form-label">What would success look like in the next 12 months?</label>
 <textarea name="success" rows="3" class="form-input form-textarea" placeholder="Describe your vision..."></textarea>
 </div>
-<button type="submit" class="form-submit" id="submitBtn">Book Your Strategy Session</button>
+<button type="submit" class="form-submit" id="submitBtn">Find Your Biggest Performance Opportunity</button>
 </form>
 </div>
 </div>
@@ -166,7 +166,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 <script>
 const s=document.getElementById('scrollTop');window.addEventListener('scroll',()=>{window.scrollY>300?s.classList.add('visible'):s.classList.remove('visible')});
 const f=document.getElementById('contactForm'),b=document.getElementById('submitBtn');
-if(f){f.addEventListener('submit',async function(e){e.preventDefault();b.disabled=true;b.textContent='Sending...';try{const d=new FormData(f);const r=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:d});if(r.ok){f.innerHTML='<div class="success-box"><div class="success-icon">✓</div><h3 class="success-title">Session Request Received</h3><p class="success-text">Thank you. We will reach out within 24 hours to schedule your strategy session.</p></div>'}else{throw new Error()}}catch(e){b.disabled=false;b.textContent='Book Your Strategy Session';const e2=document.createElement('div');e2.className='error-box';e2.innerHTML='<p class="error-text">Unable to send. Please email us at <a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></p>';f.appendChild(e2)}})}
+if(f){f.addEventListener('submit',async function(e){e.preventDefault();b.disabled=true;b.textContent='Sending...';try{const d=new FormData(f);const r=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:d});if(r.ok){f.innerHTML='<div class="success-box"><div class="success-icon">✓</div><h3 class="success-title">Session Request Received</h3><p class="success-text">Thank you. We will reach out within 24 hours to schedule your strategy session.</p></div>'}else{throw new Error()}}catch(e){b.disabled=false;b.textContent='Find Your Biggest Performance Opportunity';const e2=document.createElement('div');e2.className='error-box';e2.innerHTML='<p class="error-text">Unable to send. Please email us at <a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></p>';f.appendChild(e2)}})}
 </script>
 </body>
 </html>
