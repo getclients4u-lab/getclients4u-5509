@@ -28,6 +28,10 @@
       "dest": "/contact/index.html"
     },
     {
+      "src": "^/admin$",
+      "dest": "/admin/index.html"
+    },
+    {
       "src": "^/(.*\\..*)$",
       "dest": "/$1"
     },

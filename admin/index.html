@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Dashboard — FutureReady Advisors</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0A0E1A;color:#F7F8FC;min-height:100vh}
+.login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+.login-box{background:#0F1525;border:1px solid #1C2235;border-radius:16px;padding:48px;max-width:400px;width:100%;text-align:center}
+.login-box h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.login-box p{color:#8892A4;font-size:14px;margin-bottom:28px}
+.login-box input{width:100%;padding:12px 16px;background:#0A0E1A;border:1px solid #1C2235;border-radius:8px;color:#F7F8FC;font-size:15px;margin-bottom:14px;outline:none}
+.login-box input:focus{border-color:#4F6EF7}
+.login-box button{width:100%;padding:12px;background:#4F6EF7;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+.login-box button:hover{background:#3d5ad8}
+.login-error{color:#e74c3c;font-size:13px;margin-top:10px;display:none}
+.dashboard{display:none;padding:24px;max-width:1200px;margin:0 auto}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.dash-header h1{font-size:24px;font-weight:700}
+.dash-header .meta{color:#8892A4;font-size:13px}
+.logout-btn{background:transparent;color:#8892A4;border:1px solid #1C2235;border-radius:8px;padding:8px 18px;font-size:13px;cursor:pointer}
+.logout-btn:hover{color:#F7F8FC;border-color:#4F6EF7}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:28px}
+.stat-card{background:#0F1525;border:1px solid #1C2235;border-radius:10px;padding:20px}
+.stat-card .stat-value{font-size:28px;font-weight:800;color:#4F6EF7}
+.stat-card .stat-label{color:#8892A4;font-size:12px;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+.lead-card{background:#0F1525;border:1px solid #1C2235;border-radius:10px;padding:20px;margin-bottom:10px;transition:border-color .2s}
+.lead-card:hover{border-color:#4F6EF7}
+.lead-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+.lead-name{font-size:16px;font-weight:700}
+.lead-email{color:#4F6EF7;font-size:13px;text-decoration:none}
+.lead-company{color:#8892A4;font-size:13px}
+.lead-vision{color:#8892A4;font-size:14px;margin-top:8px;padding:10px 14px;background:#0A0E1A;border-radius:6px;line-height:1.5}
+.lead-time{color:#525252;font-size:11px;margin-top:8px}
+.lead-source{display:inline-block;background:rgba(79,110,247,.1);color:#4F6EF7;font-size:10px;border-radius:4px;padding:2px 6px;margin-left:8px}
+.leads-empty{text-align:center;padding:60px 24px;color:#8892A4}
+.leads-empty p{font-size:16px;margin-bottom:6px}
+.loading{text-align:center;padding:60px;color:#8892A4;font-size:14px}
+.refresh-btn{background:#0F1525;color:#8892A4;border:1px solid #1C2235;border-radius:8px;padding:8px 18px;font-size:13px;cursor:pointer}
+.refresh-btn:hover{color:#F7F8FC;border-color:#4F6EF7}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Login Screen -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <h1>🔐 Lead Dashboard</h1>
+    <p>Enter admin password to continue</p>
+    <input type="password" id="passwordInput" placeholder="Admin password" autocomplete="off" onkeydown="if(event.key==='Enter')login()">
+    <button onclick="login()">Unlock Dashboard</button>
+    <div class="login-error" id="loginError">Incorrect password</div>
+  </div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard" id="dashboard">
+  <div class="dash-header">
+    <div>
+      <h1>📋 Leads</h1>
+      <div class="meta" id="dashMeta">Loading...</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="refresh-btn" onclick="fetchLeads()">↻ Refresh</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="stats" id="statsRow"></div>
+  <div id="leadsContainer"><div class="loading">Loading leads...</div></div>
+</div>
+
+<script>
+const STORAGE_KEY = "fr_admin_pass";
+const API_BASE = "/api/leads";
+
+function getToken() {
+  return sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY);
+}
+
+function saveToken(token, remember) {
+  if (remember) localStorage.setItem(STORAGE_KEY, token);
+  sessionStorage.setItem(STORAGE_KEY, token);
+}
+
+function login() {
+  const pass = document.getElementById("passwordInput").value.trim();
+  if (!pass) return;
+  saveToken(pass, true);
+  document.getElementById("loginError").style.display = "none";
+  initDashboard();
+}
+
+function logout() {
+  sessionStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(STORAGE_KEY);
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("passwordInput").value = "";
+}
+
+async function fetchLeads() {
+  const container = document.getElementById("leadsContainer");
+  const meta = document.getElementById("dashMeta");
+  container.innerHTML = '<div class="loading">Loading leads...</div>';
+
+  const token = getToken();
+  if (!token) { logout(); return; }
+
+  try {
+    const resp = await fetch(API_BASE + "?token=" + encodeURIComponent(token));
+    if (resp.status === 401) {
+      logout();
+      return;
+    }
+    if (!resp.ok) {
+      container.innerHTML = '<div class="leads-empty"><p>⚠️ Failed to load leads</p><p style="font-size:13px">Check server configuration</p></div>';
+      return;
+    }
+    const data = await resp.json();
+    renderLeads(data.leads, data.total);
+    meta.textContent = data.total + " total lead" + (data.total !== 1 ? "s" : "");
+  } catch (err) {
+    container.innerHTML = '<div class="leads-empty"><p>⚠️ Network error</p></div>';
+  }
+}
+
+function renderLeads(leads, total) {
+  const container = document.getElementById("leadsContainer");
+  const statsRow = document.getElementById("statsRow");
+
+  // Stats
+  const today = new Date().toISOString().slice(0, 10);
+  const todayCount = leads.filter(l => l.capturedAt && l.capturedAt.slice(0, 10) === today).length;
+  const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
+  const weekCount = leads.filter(l => l.capturedAt && l.capturedAt >= weekAgo).length;
+
+  statsRow.innerHTML = `
+    <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">All Time</div></div>
+    <div class="stat-card"><div class="stat-value">${todayCount}</div><div class="stat-label">Today</div></div>
+    <div class="stat-card"><div class="stat-value">${weekCount}</div><div class="stat-label">This Week</div></div>
+  `;
+
+  if (!leads || leads.length === 0) {
+    container.innerHTML = '<div class="leads-empty"><p>📭 No leads yet</p><p style="font-size:13px">Leads will appear here once people submit the form</p></div>';
+    return;
+  }
+
+  container.innerHTML = leads.map(l => `
+    <div class="lead-card">
+      <div class="lead-header">
+        <div>
+          <div class="lead-name">${esc(l.name)}</div>
+          <a href="mailto:${esc(l.email)}" class="lead-email">${esc(l.email)}</a>
+          ${l.company ? '<span class="lead-company"> · ' + esc(l.company) + '</span>' : ''}
+        </div>
+        <div style="text-align:right">
+          <div class="lead-time">${formatDate(l.capturedAt)}</div>
+          ${l.source ? '<span class="lead-source">' + esc(l.source) + '</span>' : ''}
+        </div>
+      </div>
+      ${l.vision ? '<div class="lead-vision">' + esc(l.vision) + '</div>' : ''}
+    </div>
+  `).join("");
+}
+
+function esc(s) {
+  const d = document.createElement("div");
+  d.textContent = s || "";
+  return d.innerHTML;
+}
+
+function formatDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" });
+}
+
+function initDashboard() {
+  const token = getToken();
+  if (!token) {
+    document.getElementById("loginScreen").style.display = "flex";
+    document.getElementById("dashboard").style.display = "none";
+    return;
+  }
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+  fetchLeads();
+}
+
+// Auto-init
+initDashboard();
+</script>
+</body>
+</html>
