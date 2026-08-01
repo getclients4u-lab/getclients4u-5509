@@ -1,0 +1,23 @@
+name: Analytics Check
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  check-analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify every HTML page has Web Analytics + Speed Insights
+        run: python3 scripts/check-analytics.py
+
+      - name: Fail loudly if any page is missing analytics
+        if: failure()
+        run: |
+          echo "::error::One or more HTML pages are missing the Vercel analytics snippet."
+          echo "Run: python3 scripts/check-analytics.py --fix  (then commit the changes)"
+          exit 1
