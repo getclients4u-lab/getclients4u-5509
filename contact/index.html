@@ -172,5 +172,28 @@ const s=document.getElementById('scrollTop');window.addEventListener('scroll',()
 const f=document.getElementById('contactForm'),b=document.getElementById('submitBtn');
 if(f){f.addEventListener('submit',async function(e){e.preventDefault();b.disabled=true;b.textContent='Sending...';try{const d=new FormData(f);const payload={};for(const[k,v]of d.entries()){payload[k]=v};const r=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const j=await r.json();if(r.ok&&j.ok){try{window.va('event',{name:'lead_submit',data:{page:location.pathname,source:'contact-form'}})}catch(_){}f.innerHTML='<div class="success-box"><div class="success-icon">✓</div><h3 class="success-title">Session Request Received</h3><p class="success-text">Thank you. We will reach out within 24 hours to schedule your strategy session.</p></div>'}else{throw new Error()}catch(e){b.disabled=false;b.textContent='Find Your Biggest Performance Opportunity';const e2=document.createElement('div');e2.className='error-box';e2.innerHTML='<p class="error-text">Unable to send. Please email us at <a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></p>';f.appendChild(e2)}})}
 </script>
+<script>
+// CTA click tracking for Vercel Web Analytics
+(function(){
+  var SELECTOR = '.btn-primary,.btn-secondary,.nav-cta,.service-cta,.cta-banner,.btn';
+  function track(e){
+    var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+    if(!el) return;
+    try{
+      window.va('event', {
+        name: 'cta_click',
+        data: {
+          page: location.pathname,
+          cta: (el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className) || '',
+          href: el.getAttribute('href') || '',
+          text: (el.textContent || '').trim().slice(0, 60)
+        }
+      });
+    }catch(_){}
+  }
+  document.addEventListener('click', track, true);
+})();
+</script>
+
 </body>
 </html>

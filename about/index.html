@@ -366,5 +366,28 @@ if(window.scrollY>300){scrollTopBtn.classList.add('visible');}
 else{scrollTopBtn.classList.remove('visible');}
 });
 </script>
+<script>
+// CTA click tracking for Vercel Web Analytics
+(function(){
+  var SELECTOR = '.btn-primary,.btn-secondary,.nav-cta,.service-cta,.cta-banner,.btn';
+  function track(e){
+    var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+    if(!el) return;
+    try{
+      window.va('event', {
+        name: 'cta_click',
+        data: {
+          page: location.pathname,
+          cta: (el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className) || '',
+          href: el.getAttribute('href') || '',
+          text: (el.textContent || '').trim().slice(0, 60)
+        }
+      });
+    }catch(_){}
+  }
+  document.addEventListener('click', track, true);
+})();
+</script>
+
 </body>
 </html>
