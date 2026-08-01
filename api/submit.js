@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     email,
     company: company || "",
     vision: success || "",
-    source: "futureready-nova-blond",
+    source: "futureready-nova",
     capturedAt: new Date().toISOString(),
   };
 
