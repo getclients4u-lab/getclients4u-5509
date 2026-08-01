@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Vercel Web Analytics -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Vercel Speed Insights -->
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics Dashboard — FutureReady Advisors</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0A0E1A;color:#F7F8FC;min-height:100vh}
+.login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+.login-box{background:#0F1525;border:1px solid #1C2235;border-radius:16px;padding:48px;max-width:400px;width:100%;text-align:center}
+.login-box h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.login-box p{color:#8892A4;font-size:14px;margin-bottom:28px}
+.login-box input{width:100%;padding:12px 16px;background:#0A0E1A;border:1px solid #1C2235;border-radius:8px;color:#F7F8FC;font-size:15px;margin-bottom:14px;outline:none}
+.login-box input:focus{border-color:#4F6EF7}
+.login-box button{width:100%;padding:12px;background:#4F6EF7;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+.login-box button:hover{background:#3d5ad8}
+.login-error{color:#F87171;font-size:13px;margin-top:10px;display:none}
+.dash{display:none;padding:32px 24px;max-width:1100px;margin:0 auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.topbar h1{font-size:24px;font-weight:700}
+.topbar .sub{color:#8892A4;font-size:13px;margin-top:4px}
+.range{display:flex;gap:8px}
+.range button{background:#0F1525;border:1px solid #1C2235;color:#8892A4;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+.range button.active{background:#4F6EF7;border-color:#4F6EF7;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.stat{background:#0F1525;border:1px solid #1C2235;border-radius:14px;padding:20px}
+.stat .label{color:#8892A4;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.stat .value{font-size:30px;font-weight:700;margin-top:8px}
+.stat .hint{color:#5B6478;font-size:12px;margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.card{background:#0F1525;border:1px solid #1C2235;border-radius:14px;padding:20px}
+.card h3{font-size:14px;font-weight:600;margin-bottom:14px;color:#C9D2E3}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:#5B6478;text-align:left;font-weight:500;padding:6px 8px;border-bottom:1px solid #1C2235;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:8px;border-bottom:1px solid #161D2E;color:#E2E8F4}
+td.num{text-align:right;font-weight:600;color:#4F6EF7}
+tr:last-child td{border-bottom:none}
+.empty{color:#5B6478;font-size:13px;padding:16px 0}
+.footer{margin-top:24px;color:#5B6478;font-size:12px;text-align:center}
+.loading{color:#8892A4;font-size:14px;padding:20px}
+.error-box{background:#1A0F14;border:1px solid #3D1F2B;color:#F87171;padding:14px 16px;border-radius:10px;font-size:13px;margin-bottom:16px;display:none}
+</style>
+</head>
+<body>
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <h1>📊 Analytics Dashboard</h1>
+    <p>FutureReady Advisors — traffic &amp; conversions</p>
+    <input type="password" id="pin" placeholder="Admin PIN" autocomplete="off">
+    <button onclick="login()">Unlock</button>
+    <div class="login-error" id="loginError">Wrong PIN. Try again.</div>
+  </div>
+</div>
+
+<div class="dash" id="dash">
+  <div class="topbar">
+    <div>
+      <h1>📊 Site Analytics</h1>
+      <div class="sub" id="subTitle">—</div>
+    </div>
+    <div class="range">
+      <button data-days="7" class="active" onclick="setDays(7)">7 days</button>
+      <button data-days="30" onclick="setDays(30)">30 days</button>
+      <button data-days="90" onclick="setDays(90)">90 days</button>
+    </div>
+  </div>
+  <div class="error-box" id="errBox"></div>
+  <div class="stats" id="stats"></div>
+  <div class="grid">
+    <div class="card"><h3>Top Pages</h3><div id="byPath"></div></div>
+    <div class="card"><h3>Top Referrers</h3><div id="byReferrer"></div></div>
+    <div class="card"><h3>Countries</h3><div id="byCountry"></div></div>
+    <div class="card"><h3>Devices</h3><div id="byDevice"></div></div>
+    <div class="card"><h3>Browsers</h3><div id="byBrowser"></div></div>
+    <div class="card"><h3>Operating Systems</h3><div id="byOs"></div></div>
+  </div>
+  <div class="footer" id="footer"></div>
+</div>
+
+<script>
+let token = localStorage.getItem('fr_analytics_token') || '';
+let days = 7;
+
+function login(){
+  token = document.getElementById('pin').value.trim();
+  document.getElementById('loginError').style.display = 'none';
+  load();
+}
+
+function setDays(d){
+  days = d;
+  document.querySelectorAll('.range button').forEach(b=>b.classList.toggle('active', +b.dataset.days===d));
+  load();
+}
+
+function fmt(n){
+  return (n===undefined||n===null) ? '—' : Number(n).toLocaleString();
+}
+
+function renderTable(rows){
+  if(!rows || !rows.length) return '<div class="empty">No data yet — tracking is live, numbers appear as visitors come.</div>';
+  const max = Math.max(...rows.map(r=>r.value||0));
+  return '<table><thead><tr><th>Name</th><th style="text-align:right">Count</th><th style="width:120px"></th></tr></thead><tbody>' +
+    rows.map(r=>`<tr><td>${r.name||'—'}</td><td class="num">${fmt(r.value)}</td><td><div style="background:#161D2E;border-radius:4px;height:6px"><div style="background:#4F6EF7;height:6px;border-radius:4px;width:${max?Math.round(r.value/max*100):0}%"></div></div></td></tr>`).join('') +
+    '</tbody></table>';
+}
+
+async function load(){
+  const target = document.getElementById('dash');
+  if(!token){
+    document.getElementById('loginScreen').style.display='flex';
+    target.style.display='none';
+    return;
+  }
+  try{
+    const r = await fetch('/api/analytics?days='+days+'&token='+encodeURIComponent(token));
+    if(r.status===401){ document.getElementById('loginScreen').style.display='flex'; document.getElementById('loginError').style.display='block'; target.style.display='none'; return; }
+    const d = await r.json();
+    if(!r.ok || d.error){ throw new Error(d.error || 'Failed to load'); }
+    localStorage.setItem('fr_analytics_token', token);
+    document.getElementById('loginScreen').style.display='none';
+    target.style.display='block';
+
+    const c = d.counts && d.counts.data || {};
+    const visitors = c.visitors, pv = c.pageviews;
+    document.getElementById('subTitle').textContent = 'Last '+d.days+' days · generated '+new Date(d.generatedAt).toLocaleString();
+    document.getElementById('stats').innerHTML =
+      stat('Visitors', fmt(visitors), 'unique visitors') +
+      stat('Pageviews', fmt(pv), 'total page loads') +
+      stat('Pages/Visit', (visitors? (pv/visitors).toFixed(2):'—'), 'engagement depth');
+
+    const agg = (x)=> (x && x.data && x.data.groups) ? x.data.groups.map(g=>({name: g.key, value: g.value})) : [];
+    document.getElementById('byPath').innerHTML = renderTable(agg(d.byPath).slice(0,15));
+    document.getElementById('byReferrer').innerHTML = renderTable(agg(d.byReferrer).slice(0,10));
+    document.getElementById('byCountry').innerHTML = renderTable(agg(d.byCountry).slice(0,10));
+    document.getElementById('byDevice').innerHTML = renderTable(agg(d.byDevice).slice(0,5));
+    document.getElementById('byBrowser').innerHTML = renderTable(agg(d.byBrowser).slice(0,5));
+    document.getElementById('byOs').innerHTML = renderTable(agg(d.byOs).slice(0,5));
+    document.getElementById('footer').textContent = 'FutureReady Advisors · secured analytics · data via Vercel Web Analytics';
+  }catch(e){
+    document.getElementById('errBox').style.display='block';
+    document.getElementById('errBox').textContent = 'Error: '+(e.message||e);
+  }
+}
+
+function stat(label,value,hint){ return `<div class="stat"><div class="label">${label}</div><div class="value">${value}</div><div class="hint">${hint}</div></div>`; }
+
+// Auto-login if a token is stored
+if(token){ load(); }
+</script>
+</body>
+</html>

@@ -32,6 +32,14 @@
       "dest": "/admin/index.html"
     },
     {
+      "src": "^/analytics$",
+      "dest": "/analytics/index.html"
+    },
+    {
+      "src": "^/api/analytics$",
+      "dest": "/api/analytics.js"
+    },
+    {
       "src": "^/api/submit$",
       "dest": "/api/submit.js"
     },
