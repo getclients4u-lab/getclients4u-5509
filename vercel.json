@@ -40,6 +40,10 @@
       "dest": "/api/analytics.js"
     },
     {
+      "src": "^/api/event$",
+      "dest": "/api/event.js"
+    },
+    {
       "src": "^/api/submit$",
       "dest": "/api/submit.js"
     },

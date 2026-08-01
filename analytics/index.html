@@ -75,6 +75,8 @@ tr:last-child td{border-bottom:none}
   <div class="error-box" id="errBox"></div>
   <div class="stats" id="stats"></div>
   <div class="grid">
+    <div class="card"><h3>Events (conversions)</h3><div id="byEventType"></div></div>
+    <div class="card"><h3>Top CTAs Clicked</h3><div id="byEventCta"></div></div>
     <div class="card"><h3>Top Pages</h3><div id="byPath"></div></div>
     <div class="card"><h3>Top Referrers</h3><div id="byReferrer"></div></div>
     <div class="card"><h3>Countries</h3><div id="byCountry"></div></div>
@@ -144,6 +146,25 @@ async function load(){
     document.getElementById('byDevice').innerHTML = renderTable(agg(d.byDevice).slice(0,5));
     document.getElementById('byBrowser').innerHTML = renderTable(agg(d.byBrowser).slice(0,5));
     document.getElementById('byOs').innerHTML = renderTable(agg(d.byOs).slice(0,5));
+
+    // Events panel (self-hosted /api/event)
+    try{
+      const er = await fetch('/api/event?days='+days+'&token='+encodeURIComponent(token));
+      if(er.ok){
+        const ev = await er.json();
+        const evt = document.getElementById('byEventType');
+        const evc = document.getElementById('byEventCta');
+        if(ev.total){
+          evt.innerHTML = renderTable(ev.byType.map(x=>({name: x.name, value: x.value})));
+          evc.innerHTML = renderTable(ev.byCta.map(x=>({name: x.name, value: x.value})));
+          const pv2 = c.pageviews||0;
+          document.getElementById('stats').innerHTML += stat('Conversions', fmt(ev.total), 'CTA clicks + form submits');
+        } else {
+          evt.innerHTML = '<div class="empty">No events yet — CTA clicks and form submissions will appear here.</div>';
+          evc.innerHTML = '<div class="empty">—</div>';
+        }
+      }
+    }catch(_){}
     document.getElementById('footer').textContent = 'FutureReady Advisors · secured analytics · data via Vercel Web Analytics';
   }catch(e){
     document.getElementById('errBox').style.display='block';
