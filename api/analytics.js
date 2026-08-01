@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
   // Auth (same token as /api/leads)
   const adminToken = process.env.ADMIN_TOKEN;
-  const provided = req.query.token || req.headers["x-admin-token"];
+  const provided = req.query.token || (req.headers && req.headers["x-admin-token"]) || undefined;
   if (adminToken && provided !== adminToken) {
     return res.status(401).json({ error: "Unauthorized" });
   }
