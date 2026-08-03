@@ -39,7 +39,12 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const days = Math.min(parseInt(req.query.days || "7", 10) || 7, 90);
+  // Vercel Web Analytics Hobby plan only exposes the latest 31 days of data.
+  // Querying older windows returns 400 bad_request, so clamp server-side and
+  // flag when the requested range was capped.
+  const requested = parseInt(req.query.days || "7", 10) || 7;
+  const days = Math.min(requested, 31);
+  const planCapped = requested > 31;
   const since = iso(days);
   const until = new Date().toISOString();
 
@@ -56,6 +61,7 @@ export default async function handler(req, res) {
   return res.status(200).json({
     generatedAt: new Date().toISOString(),
     days,
+    planCapped,
     counts,
     byPath,
     byReferrer,

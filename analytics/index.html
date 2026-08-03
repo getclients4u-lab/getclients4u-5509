@@ -77,6 +77,7 @@ tr:last-child td{border-bottom:none}
   <div class="grid">
     <div class="card"><h3>Events (conversions)</h3><div id="byEventType"></div></div>
     <div class="card"><h3>Top CTAs Clicked</h3><div id="byEventCta"></div></div>
+    <div class="card" style="grid-column:1/-1"><h3>Recent CTA Clicks — per visitor</h3><div id="recentEvents"></div></div>
     <div class="card"><h3>Top Pages</h3><div id="byPath"></div></div>
     <div class="card"><h3>Top Referrers</h3><div id="byReferrer"></div></div>
     <div class="card"><h3>Countries</h3><div id="byCountry"></div></div>
@@ -133,7 +134,8 @@ async function load(){
 
     const c = d.counts && d.counts.data || {};
     const visitors = c.visitors, pv = c.pageviews;
-    document.getElementById('subTitle').textContent = 'Last '+d.days+' days · generated '+new Date(d.generatedAt).toLocaleString();
+    const rangeLabel = d.planCapped ? 'Last '+d.days+' days (Vercel Hobby plan: 31-day max)' : 'Last '+d.days+' days';
+    document.getElementById('subTitle').textContent = rangeLabel+' · generated '+new Date(d.generatedAt).toLocaleString();
     document.getElementById('stats').innerHTML =
       stat('Visitors', fmt(visitors), 'unique visitors') +
       stat('Pageviews', fmt(pv), 'total page loads') +
@@ -149,11 +151,12 @@ async function load(){
 
     // Events panel (self-hosted /api/event)
     try{
-      const er = await fetch('/api/event?days='+days+'&token='+encodeURIComponent(token));
+      const er = await fetch('/api/event?days='+days+'&raw=1&token='+encodeURIComponent(token));
       if(er.ok){
         const ev = await er.json();
         const evt = document.getElementById('byEventType');
         const evc = document.getElementById('byEventCta');
+        const evr = document.getElementById('recentEvents');
         if(ev.total){
           evt.innerHTML = renderTable(ev.byType.map(x=>({name: x.name, value: x.value})));
           evc.innerHTML = renderTable(ev.byCta.map(x=>({name: x.name, value: x.value})));
@@ -163,6 +166,11 @@ async function load(){
           evt.innerHTML = '<div class="empty">No events yet — CTA clicks and form submissions will appear here.</div>';
           evc.innerHTML = '<div class="empty">—</div>';
         }
+        if(ev.events && ev.events.length){
+          evr.innerHTML = renderEventTable(ev.events);
+        } else {
+          evr.innerHTML = '<div class="empty">No CTA clicks in this window yet.</div>';
+        }
       }
     }catch(_){}
     document.getElementById('footer').textContent = 'FutureReady Advisors · secured analytics · data via Vercel Web Analytics';
@@ -170,6 +178,13 @@ async function load(){
     document.getElementById('errBox').style.display='block';
     document.getElementById('errBox').textContent = 'Error: '+(e.message||e);
   }
+}
+
+function renderEventTable(events){
+  const esc = (s)=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return '<table><thead><tr><th>Time (UTC)</th><th>Type</th><th>Page</th><th>CTA</th><th>Text</th><th>Link</th><th>IP</th><th>Device</th></tr></thead><tbody>' +
+    events.map(e=>`<tr><td>${esc(e.ts.replace('T',' ').slice(0,16))}</td><td>${esc(e.type)}</td><td>${esc(e.page)}</td><td>${esc(e.cta)}</td><td>${esc(e.text)}</td><td>${esc(e.href)}</td><td>${esc(e.ip)}</td><td title="${esc(e.ua)}">${esc((e.ua||'').slice(0,40))}</td></tr>`).join('') +
+    '</tbody></table>';
 }
 
 function stat(label,value,hint){ return `<div class="stat"><div class="label">${label}</div><div class="value">${value}</div><div class="hint">${hint}</div></div>`; }

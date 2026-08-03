@@ -54,6 +54,10 @@ export default async function handler(req, res) {
       const { type, page, cta, href, text } = req.body || {};
       if (!type) return res.status(400).json({ error: "type required" });
 
+      // Visitor detail captured server-side (Vercel sets these headers)
+      const ip = String((req.headers["x-forwarded-for"] || "").split(",")[0] || "").trim().slice(0, 45);
+      const ua = String(req.headers["user-agent"] || "").slice(0, 200);
+
       const event = {
         id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
         type: String(type).slice(0, 40),
@@ -61,6 +65,8 @@ export default async function handler(req, res) {
         cta: String(cta || "").slice(0, 80),
         href: String(href || "").slice(0, 160),
         text: String(text || "").slice(0, 80),
+        ip,
+        ua,
         ts: new Date().toISOString(),
       };
 
@@ -100,6 +106,26 @@ export default async function handler(req, res) {
       }
       const toArr = (obj, limit = 10) =>
         Object.entries(obj).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value).slice(0, limit);
+
+      // raw=1 → full per-visitor event detail (newest first, max 200)
+      if (req.query.raw === "1" || req.query.raw === "true") {
+        const list = recent.slice(-200).reverse().map((e) => ({
+          ts: e.ts,
+          type: e.type,
+          page: e.page,
+          cta: e.cta,
+          href: e.href,
+          text: e.text,
+          ip: e.ip || "",
+          ua: e.ua || "",
+        }));
+        return res.status(200).json({
+          generatedAt: new Date().toISOString(),
+          days,
+          total: recent.length,
+          events: list,
+        });
+      }
 
       return res.status(200).json({
         generatedAt: new Date().toISOString(),
