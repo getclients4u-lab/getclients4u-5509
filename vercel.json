@@ -36,6 +36,10 @@
       "dest": "/analytics/index.html"
     },
     {
+      "src": "^/events$",
+      "dest": "/events/index.html"
+    },
+    {
       "src": "^/api/analytics$",
       "dest": "/api/analytics.js"
     },

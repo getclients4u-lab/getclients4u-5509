@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Vercel Web Analytics -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Vercel Speed Insights -->
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTA Events — FutureReady Advisors</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0A0E1A;color:#F7F8FC;min-height:100vh}
+.login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+.login-box{background:#0F1525;border:1px solid #1C2235;border-radius:16px;padding:48px;max-width:400px;width:100%;text-align:center}
+.login-box h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.login-box p{color:#8892A4;font-size:14px;margin-bottom:28px}
+.login-box input{width:100%;padding:12px 16px;background:#0A0E1A;border:1px solid #1C2235;border-radius:8px;color:#F7F8FC;font-size:15px;margin-bottom:14px;outline:none}
+.login-box input:focus{border-color:#4F6EF7}
+.login-box button{width:100%;padding:12px;background:#4F6EF7;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+.login-box button:hover{background:#3d5ad8}
+.login-error{color:#F87171;font-size:13px;margin-top:10px;display:none}
+.dash{display:none;padding:32px 24px;max-width:1200px;margin:0 auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.topbar h1{font-size:24px;font-weight:700}
+.topbar .sub{color:#8892A4;font-size:13px;margin-top:4px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.range{display:flex;gap:8px}
+.range button{background:#0F1525;border:1px solid #1C2235;color:#8892A4;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+.range button.active{background:#4F6EF7;border-color:#4F6EF7;color:#fff}
+.refresh-pill{background:#0F1525;border:1px solid #1C2235;color:#8892A4;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+.refresh-pill.on{color:#6EE7B7;border-color:#1F4A3D}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:24px}
+.stat{background:#0F1525;border:1px solid #1C2235;border-radius:14px;padding:20px;position:relative;overflow:hidden}
+.stat .label{color:#8892A4;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.stat .value{font-size:30px;font-weight:700;margin-top:8px}
+.stat .hint{color:#5B6478;font-size:12px;margin-top:4px}
+.stat.glow::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4F6EF7,#6EE7B7)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-bottom:16px}
+.card{background:#0F1525;border:1px solid #1C2235;border-radius:14px;padding:20px}
+.card h3{font-size:14px;font-weight:600;margin-bottom:14px;color:#C9D2E3;display:flex;justify-content:space-between;align-items:center}
+.card h3 .tag{font-size:11px;font-weight:500;color:#5B6478;text-transform:uppercase;letter-spacing:.5px}
+.card.wide{grid-column:1/-1}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:#5B6478;text-align:left;font-weight:500;padding:6px 8px;border-bottom:1px solid #1C2235;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:8px;border-bottom:1px solid #161D2E;color:#E2E8F4;vertical-align:top}
+td.num{text-align:right;font-weight:600;color:#4F6EF7;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.empty{color:#5B6478;font-size:13px;padding:16px 0}
+.footer{margin-top:24px;color:#5B6478;font-size:12px;text-align:center}
+.loading{color:#8892A4;font-size:14px;padding:20px}
+.error-box{background:#1A0F14;border:1px solid #3D1F2B;color:#F87171;padding:14px 16px;border-radius:10px;font-size:13px;margin-bottom:16px;display:none}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.badge.click{background:#13233F;color:#7CA4F7}
+.badge.lead{background:#0F2B22;color:#6EE7B7}
+.badge.dev{background:#1C2235;color:#8892A4;font-size:10px;padding:2px 7px}
+.bar{background:#161D2E;border-radius:4px;height:6px;overflow:hidden}
+.bar>div{background:linear-gradient(90deg,#4F6EF7,#6EE7B7);height:6px;border-radius:4px}
+canvas{width:100%;height:120px;display:block}
+.heat-wrap{display:grid;grid-template-columns:repeat(24,1fr);gap:3px}
+.heat-cell{aspect-ratio:1;border-radius:3px;background:#161D2E;position:relative}
+.heat-cell .tip{display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#1C2235;border:1px solid #2A3450;padding:4px 8px;border-radius:6px;font-size:11px;white-space:nowrap;z-index:5}
+.heat-cell:hover .tip{display:block}
+.heat-label{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;color:#5B6478;font-size:9px;margin-top:4px}
+.heat-label span{text-align:center}
+.funnel{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:6px 0}
+.funnel-step{flex:1;min-width:150px;background:#0A0E1A;border:1px solid #1C2235;border-radius:12px;padding:16px;text-align:center}
+.funnel-step .fv{font-size:26px;font-weight:700}
+.funnel-step .fl{font-size:12px;color:#8892A4;margin-top:4px}
+.funnel-arrow{color:#3A4665;font-size:22px;font-weight:700}
+.leadrate{font-size:13px;color:#6EE7B7;font-weight:600}
+@media(max-width:640px){.heat-wrap{grid-template-columns:repeat(12,1fr)}.heat-label{grid-template-columns:repeat(12,1fr)}}
+</style>
+</head>
+<body>
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <h1>🎯 CTA Events</h1>
+    <p>FutureReady Advisors — what gets clicked, what converts</p>
+    <input type="password" id="pin" placeholder="Admin PIN" autocomplete="off">
+    <button onclick="login()">Unlock</button>
+    <div class="login-error" id="loginError">Wrong PIN. Try again.</div>
+  </div>
+</div>
+
+<div class="dash" id="dash">
+  <div class="topbar">
+    <div>
+      <h1>🎯 CTA Events</h1>
+      <div class="sub" id="subTitle">—</div>
+    </div>
+    <div class="controls">
+      <div class="range">
+        <button data-days="7" class="active" onclick="setDays(7)">7d</button>
+        <button data-days="30" onclick="setDays(30)">30d</button>
+        <button data-days="90" onclick="setDays(90)">90d</button>
+      </div>
+      <button class="refresh-pill on" id="autoBtn" onclick="toggleAuto()">● Auto-refresh</button>
+      <button class="refresh-pill" onclick="load()">⟳ Now</button>
+    </div>
+  </div>
+  <div class="error-box" id="errBox"></div>
+  <div class="stats" id="stats"></div>
+  <div class="grid">
+    <div class="card"><h3>Daily clicks <span class="tag">timeline</span></h3><div id="timeline"><div class="empty">Loading…</div></div></div>
+    <div class="card"><h3>Hour of day <span class="tag">when people click</span></h3><div id="heat"><div class="empty">Loading…</div></div></div>
+    <div class="card wide"><h3>Conversion funnel <span class="tag">cta_click → lead_submit</span></h3><div id="funnel"></div></div>
+    <div class="card"><h3>Top CTAs clicked</h3><div id="byCta"></div></div>
+    <div class="card"><h3>Pages driving action</h3><div id="byPage"></div></div>
+    <div class="card"><h3>Devices</h3><div id="byDevice"></div></div>
+    <div class="card wide"><h3>Live event stream <span class="tag" id="streamCount"></span></h3><div id="stream"></div></div>
+  </div>
+  <div class="footer" id="footer"></div>
+</div>
+
+<script>
+let token = (localStorage.getItem('fr_events_token') || localStorage.getItem('fr_analytics_token') || '');
+let days = 7;
+let auto = true;
+let timer = null;
+
+function login(){
+  token = document.getElementById('pin').value.trim();
+  document.getElementById('loginError').style.display = 'none';
+  load();
+}
+function setDays(d){
+  days = d;
+  document.querySelectorAll('.range button').forEach(b=>b.classList.toggle('active', +b.dataset.days===d));
+  load();
+}
+function toggleAuto(){
+  auto = !auto;
+  document.getElementById('autoBtn').classList.toggle('on', auto);
+  document.getElementById('autoBtn').textContent = auto ? '● Auto-refresh' : '○ Auto-refresh off';
+  if(auto){ schedule(); } else if(timer){ clearTimeout(timer); timer=null; }
+}
+function schedule(){
+  if(timer) clearTimeout(timer);
+  if(auto) timer = setTimeout(()=>{ load(); }, 45000);
+}
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmt(n){ return (n===undefined||n===null)?'—':Number(n).toLocaleString(); }
+function timeAgo(ts){
+  const s = Math.max(0, (Date.now() - new Date(ts).getTime())/1000);
+  if(s < 60) return Math.floor(s)+'s ago';
+  if(s < 3600) return Math.floor(s/60)+'m ago';
+  if(s < 86400) return Math.floor(s/3600)+'h ago';
+  return Math.floor(s/86400)+'d ago';
+}
+function deviceOf(ua){
+  ua = ua || '';
+  if(/iPad|Tablet/i.test(ua)) return 'Tablet';
+  if(/iPhone|Android|iPod|Mobile/i.test(ua)) return 'Mobile';
+  return 'Desktop';
+}
+function stat(label, value, hint, glow){
+  return `<div class="stat${glow?' glow':''}"><div class="label">${label}</div><div class="value">${value}</div><div class="hint">${hint}</div></div>`;
+}
+function renderBarTable(rows, color){
+  if(!rows || !rows.length) return '<div class="empty">No data in this window yet — clicks will show up here as visitors engage.</div>';
+  const max = Math.max(...rows.map(r=>r.value||0));
+  return '<table><thead><tr><th>Name</th><th style="text-align:right">Count</th><th style="width:140px"></th></tr></thead><tbody>' +
+    rows.map(r=>`<tr><td>${esc(r.name||'—')}</td><td class="num">${fmt(r.value)}</td><td><div class="bar"><div style="width:${max?Math.round(r.value/max*100):0}%"></div></div></td></tr>`).join('') +
+    '</tbody></table>';
+}
+function drawTimeline(events){
+  const el = document.getElementById('timeline');
+  const counts = {};
+  let min = Infinity, max = 0;
+  const now = Date.now();
+  for(let i = days-1; i >= 0; i--){
+    const d = new Date(now - i*86400000);
+    const k = d.toISOString().slice(0,10);
+    counts[k] = 0;
+  }
+  for(const e of events){
+    const k = new Date(e.ts).toISOString().slice(0,10);
+    if(k in counts){ counts[k]++; }
+  }
+  const keys = Object.keys(counts);
+  const vals = keys.map(k=>counts[k]);
+  max = Math.max(...vals, 1); min = 0;
+  const W = 900, H = 120, pad = 4;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const x = c.getContext('2d');
+  const bw = (W - pad*2) / keys.length;
+  x.fillStyle = '#161D2E'; x.fillRect(0,0,W,H);
+  const bw2 = Math.max(2, bw*0.62);
+  keys.forEach((k,i)=>{
+    const v = counts[k];
+    const bh = Math.max(v?4:0, v/max*(H-16));
+    const g = x.createLinearGradient(0,H-16-bh,0,H);
+    g.addColorStop(0,'#6EE7B7'); g.addColorStop(1,'#4F6EF7');
+    x.fillStyle = v? g : '#101624';
+    x.fillRect(pad + i*bw + (bw-bw2)/2, H-16-bh, bw2, bh);
+    x.fillStyle = '#5B6478'; x.font = '9px Inter, sans-serif'; x.textAlign = 'center';
+    if(keys.length <= 14){ x.fillText(k.slice(5).replace('-','/'), pad + i*bw + bw/2, H-4); }
+    x.fillStyle = '#8892A4'; x.textAlign = 'right';
+    x.fillText(v||'', pad + i*bw + (bw-bw2)/2 - 3, H-16-bh+10);
+  });
+  el.innerHTML = '';
+  el.appendChild(c);
+}
+function drawHeat(events){
+  const el = document.getElementById('heat');
+  const hours = new Array(24).fill(0);
+  for(const e of events){
+    const h = new Date(e.ts).getHours();
+    hours[h]++;
+  }
+  const max = Math.max(...hours, 1);
+  let cells = '';
+  hours.forEach((v,h)=>{
+    const a = v? 0.15 + 0.85*(v/max) : 0;
+    cells += `<div class="heat-cell" style="background:rgba(79,110,247,${a})"><div class="tip">${h}:00 — ${v} click${v===1?'':'s'}</div></div>`;
+  });
+  let labels = '';
+  for(let h=0; h<24; h++){ labels += `<span>${h}</span>`; }
+  el.innerHTML = `<div class="heat-wrap">${cells}</div><div class="heat-label">${labels}</div><div class="empty" style="padding-top:10px;font-size:11px">Peak hour: <b style="color:#F7F8FC">${hours.indexOf(max)}:00</b> local time · ${max} clicks</div>`;
+}
+function renderStream(events){
+  const el = document.getElementById('stream');
+  if(!events || !events.length){ el.innerHTML = '<div class="empty">No CTA activity in this window yet. When visitors click buttons or submit the form, it lands here in near-real-time.</div>'; return; }
+  const rows = events.slice(0, 60).map(e=>{
+    const badge = e.type==='lead_submit' ? '<span class="badge lead">LEAD</span>' : '<span class="badge click">CLICK</span>';
+    const dev = deviceOf(e.ua);
+    return `<tr>
+      <td class="num" style="color:#8892A4;font-size:12px">${timeAgo(e.ts)}</td>
+      <td>${badge}</td>
+      <td>${esc(e.page)}</td>
+      <td><b>${esc(e.cta||'—')}</b></td>
+      <td style="color:#8892A4">${esc(e.text||'')}</td>
+      <td>${esc(e.ip||'—')} <span class="badge dev">${dev}</span></td>
+    </tr>`;
+  }).join('');
+  el.innerHTML = `<table><thead><tr><th>When</th><th>Type</th><th>Page</th><th>CTA</th><th>Button text</th><th>Visitor</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+async function load(){
+  const target = document.getElementById('dash');
+  if(!token){ document.getElementById('loginScreen').style.display='flex'; target.style.display='none'; return; }
+  try{
+    const r = await fetch('/api/event?days='+days+'&raw=1&token='+encodeURIComponent(token));
+    if(r.status===401){ document.getElementById('loginScreen').style.display='flex'; document.getElementById('loginError').style.display='block'; target.style.display='none'; return; }
+    const d = await r.json();
+    if(!r.ok || d.error){ throw new Error(d.error || 'Failed to load'); }
+    localStorage.setItem('fr_events_token', token);
+    document.getElementById('loginScreen').style.display='none';
+    target.style.display='block';
+
+    const ev = d.events || [];
+    const clicks = ev.filter(e=>e.type==='cta_click');
+    const leads = ev.filter(e=>e.type==='lead_submit');
+    const uniqueIps = new Set(ev.map(e=>e.ip).filter(Boolean)).size;
+    const ctaCount = {};
+    for(const e of clicks){ ctaCount[e.cta||'unknown'] = (ctaCount[e.cta||'unknown']||0)+1; }
+    const bestCta = Object.entries(ctaCount).sort((a,b)=>b[1]-a[1])[0];
+    const rate = clicks.length ? (leads.length/clicks.length*100) : 0;
+
+    document.getElementById('subTitle').textContent = `Last ${d.days} days · ${clicks.length} clicks, ${leads.length} leads · updated ${new Date(d.generatedAt).toLocaleString()}`;
+    document.getElementById('stats').innerHTML =
+      stat('CTA clicks', fmt(clicks.length), 'buttons clicked', true) +
+      stat('Lead submissions', fmt(leads.length), 'form conversions') +
+      stat('Conversion rate', rate.toFixed(1)+'%', 'leads per click') +
+      stat('Unique visitors', fmt(uniqueIps), 'by IP address') +
+      stat('Best CTA', bestCta? esc(bestCta[0]) : '—', bestCta? fmt(bestCta[1])+' clicks' : 'no clicks yet');
+
+    // Funnel
+    document.getElementById('funnel').innerHTML = `
+      <div class="funnel">
+        <div class="funnel-step"><div class="fv">${fmt(clicks.length)}</div><div class="fl">CTA clicks</div></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step"><div class="fv">${fmt(leads.length)}</div><div class="fl">Lead submissions</div></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step"><div class="fv leadrate">${rate.toFixed(1)}%</div><div class="fl">conversion rate</div></div>
+        <div class="funnel-step" style="border-color:#1F4A3D"><div class="fv" style="color:#6EE7B7">${clicks.length? (leads.length/clicks.length*1000).toFixed(0):0}</div><div class="fl">leads per 1,000 clicks</div></div>
+      </div>
+      <div class="empty" style="padding-top:10px;font-size:12px">${clicks.length? `1 in ${(clicks.length/leads.length).toFixed(0)} clicks becomes a lead — track this over time to measure copy and offer improvements.` : 'No clicks in this window yet — funnel fills in as visitors engage.'}</div>`;
+
+    // Charts
+    drawTimeline(ev);
+    drawHeat(ev);
+
+    const agg = (fn) => {
+      const m = {};
+      for(const e of ev){ const k = fn(e); m[k] = (m[k]||0)+1; }
+      return Object.entries(m).map(([name,value])=>({name,value})).sort((a,b)=>b.value-a.value).slice(0,10);
+    };
+    document.getElementById('byCta').innerHTML = renderBarTable(agg(e=>e.cta||'unknown'));
+    document.getElementById('byPage').innerHTML = renderBarTable(agg(e=>e.page||'/'));
+
+    // Devices
+    const devs = {};
+    for(const e of ev){ const k = deviceOf(e.ua); devs[k] = (devs[k]||0)+1; }
+    document.getElementById('byDevice').innerHTML = renderBarTable(Object.entries(devs).map(([name,value])=>({name,value})).sort((a,b)=>b.value-a.value));
+    if(!Object.keys(devs).length){ document.getElementById('byDevice').innerHTML = '<div class="empty">No device data yet.</div>'; }
+
+    // Stream
+    document.getElementById('streamCount').textContent = ev.length + ' events';
+    renderStream(ev);
+
+    document.getElementById('footer').textContent = 'FutureReady Advisors · CTA events via /api/event (self-hosted, GitHub-backed) · auto-refreshes every 45s';
+  }catch(e){
+    document.getElementById('errBox').style.display='block';
+    document.getElementById('errBox').textContent = 'Error: '+(e.message||e);
+  }
+  schedule();
+}
+
+// Auto-login if a token is already stored
+if(token){ load(); }
+</script>
+</body>
+</html>
