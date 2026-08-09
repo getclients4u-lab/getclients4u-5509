@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /analytics
+Disallow: /events
+Disallow: /api/
+
+Sitemap: https://www.futurereadyus.com/sitemap.xml
