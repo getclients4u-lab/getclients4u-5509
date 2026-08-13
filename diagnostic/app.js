@@ -11,7 +11,7 @@ function track(type,extra){
   }catch(_){}
 }
 
-fetch("./diagnostics.json").then(r=>r.json()).then(cfg=>{
+fetch("/diagnostic/diagnostics.json").then(r=>r.json()).then(cfg=>{
   state.cfg=cfg; $("#consentText").textContent=cfg.leadCapture.consentText;
   cfg.assessments.forEach(a=>{
     const d=document.createElement("article");d.className="card";
