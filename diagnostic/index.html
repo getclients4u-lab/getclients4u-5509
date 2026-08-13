@@ -1,62 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FRA Executive Growth Diagnostic</title>
-<meta name="description" content="Identify your biggest growth, AI, execution, or revenue constraint in minutes.">
+<!-- Vercel Web Analytics -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Vercel Speed Insights -->
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="rzTwV3tGWfM2kfmghne0Se3kJqSVPFgn3C5hKiqkpUg" />
+<title>Free Executive Growth Diagnostic — FutureReady Advisors</title>
+<meta name="description" content="Identify your biggest growth, AI, execution, or revenue constraint in minutes. Take the free FutureReady Advisors executive diagnostic and get a prioritized action plan.">
+<meta name="keywords" content="executive diagnostic, growth assessment, AI readiness assessment, business growth scorecard, revenue leak analysis, CEO assessment">
+<meta name="author" content="FutureReady Advisors">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="US">
+<meta name="geo.placename" content="Nationwide">
+<meta property="og:title" content="Free Executive Growth Diagnostic — FutureReady Advisors">
+<meta property="og:description" content="Find the constraint holding back your next stage of growth. Four diagnostics, twelve questions each, a prioritized action path in minutes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.futurereadyus.com/diagnostic">
+<meta property="og:image" content="https://www.futurereadyus.com/logo-v2.jpg">
+<meta property="og:site_name" content="FutureReady Advisors">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Executive Growth Diagnostic — FutureReady Advisors">
+<meta name="twitter:description" content="Find the constraint holding back your next stage of growth. Four diagnostics, a prioritized action path in minutes.">
+<meta name="twitter:image" content="https://www.futurereadyus.com/logo-v2.jpg">
+<link rel="canonical" href="https://www.futurereadyus.com/diagnostic">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Free Executive Growth Diagnostic","description":"Identify your biggest growth, AI, execution, or revenue constraint with a free executive diagnostic from FutureReady Advisors.","url":"https://www.futurereadyus.com/diagnostic","publisher":{"@type":"Organization","name":"FutureReady Advisors","url":"https://www.futurereadyus.com"}}
+</script>
 <link rel="stylesheet" href="./styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="nav"><div class="brand">FutureReady <span>Advisors</span></div><a href="https://futurereadyus.com">futurereadyus.com</a></header>
+<nav><div class="container nav-inner">
+<a href="/" class="logo"><img src="/logo-v2.jpg" alt="FutureReady Advisors" style="height:40px"></a>
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/services">Services</a>
+<a href="/diagnostic">Diagnostic</a>
+<a href="/contact">Contact</a>
+<a href="/contact" class="nav-cta">Find Your Biggest Performance Opportunity</a>
+</div>
+</div></nav>
+
 <main>
-<section id="hero" class="hero">
-  <div class="eyebrow">FREE EXECUTIVE DIAGNOSTIC</div>
-  <h1>Find the constraint holding back your next stage of growth.</h1>
-  <p>Choose a diagnostic, answer a focused set of executive questions, and receive a prioritized action path.</p>
-  <div id="assessmentCards" class="cards"></div>
-</section>
+<header class="page-header" id="hero"><div class="container">
+<div class="page-eyebrow">Free Executive Diagnostic</div>
+<h1>Find the constraint holding back your <span style="color:#c25e00">next stage of growth.</span></h1>
+<p>Choose a diagnostic, answer 12 focused executive questions, and receive a prioritized action path — built on the FutureReady Growth Architecture™ methodology.</p>
+<div class="hero-tags">
+<span class="hero-tag">4 Diagnostics</span>
+<span class="hero-tag">12 Questions Each</span>
+<span class="hero-tag">~3 Minutes</span>
+<span class="hero-tag">Free — No Email Required</span>
+</div>
+<div id="assessmentCards" class="cards"></div>
+</div></header>
 
-<section id="quiz" class="panel hidden">
-  <div class="progress"><span id="progressBar"></span></div>
-  <div class="eyebrow" id="quizEyebrow"></div>
-  <h2 id="questionText"></h2>
-  <div id="scale" class="scale"></div>
-  <div class="quiz-actions"><button id="backBtn" class="secondary">Back</button><span id="counter"></span></div>
-</section>
+<section id="quiz" class="section hidden"><div class="container-narrow">
+<div class="panel">
+<div class="progress"><span id="progressBar"></span></div>
+<div class="page-eyebrow" id="quizEyebrow" style="margin-bottom:12px"></div>
+<h2 id="questionText"></h2>
+<div id="scale" class="scale"></div>
+<div class="quiz-actions"><button id="backBtn" class="btn btn-outline">← Back</button><span class="counter" id="counter"></span></div>
+</div>
+</div></section>
 
-<section id="lead" class="panel hidden">
-  <div class="eyebrow">YOUR RESULTS ARE READY</div>
-  <h2>Where should we send your personalized action plan?</h2>
-  <p class="muted">You can also continue without submitting contact details.</p>
-  <form id="leadForm">
-    <div class="grid2">
-      <input name="name" placeholder="Name"><input name="email" type="email" placeholder="Work email">
-      <input name="company" placeholder="Company"><input name="role" placeholder="Role">
-      <input name="company_size" placeholder="Company size"><input name="primary_challenge" placeholder="Primary challenge">
-    </div>
-    <label class="consent"><input type="checkbox" name="consent"> <span id="consentText"></span></label>
-    <div class="row"><button type="submit">Show My Results</button><button id="skipLead" type="button" class="secondary">Skip</button></div>
-  </form>
-</section>
+<section id="lead" class="section hidden"><div class="container-narrow">
+<div class="panel">
+<div class="page-eyebrow" style="margin-bottom:12px">Your Results Are Ready</div>
+<h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;margin-bottom:8px;letter-spacing:-.02em">Where should we send your personalized action plan?</h2>
+<p class="muted" style="margin-bottom:28px">You can also continue without submitting contact details.</p>
+<form id="leadForm">
+<div class="grid2">
+<input class="form-input" name="name" placeholder="Name">
+<input class="form-input" name="email" type="email" placeholder="Work email">
+<input class="form-input" name="company" placeholder="Company">
+<input class="form-input" name="role" placeholder="Role">
+<input class="form-input" name="company_size" placeholder="Company size">
+<input class="form-input" name="primary_challenge" placeholder="Primary challenge">
+</div>
+<label class="consent"><input type="checkbox" name="consent"> <span id="consentText"></span></label>
+<div class="row">
+<button type="submit" class="form-submit">Show My Results</button>
+<button id="skipLead" type="button" class="btn btn-outline">Skip</button>
+</div>
+</form>
+</div>
+</div></section>
 
-<section id="results" class="hidden">
-  <div class="result-hero">
-    <div class="eyebrow">FRA EXECUTIVE GROWTH DIAGNOSTIC</div>
-    <h2 id="resultTitle"></h2>
-    <div class="score-wrap"><div class="score" id="overallScore"></div><div><b id="band"></b><div id="stage" class="muted"></div></div></div>
-    <p id="interpretation"></p>
-  </div>
-  <div class="panel"><h3>Dimension scores</h3><div id="dimensions"></div></div>
-  <div class="panel"><h3>Top constraints</h3><div id="constraints"></div></div>
-  <div class="panel"><h3>Priority actions</h3><ol id="recommendations"></ol></div>
-  <div class="panel"><h3>Your 30 / 60 / 90-day path</h3><div id="actionPath" class="timeline"></div></div>
-  <div class="panel cta-panel">
-    <div class="eyebrow">NEXT STEPS</div>
-    <h3>Turn the diagnostic into action.</h3>
-    <div id="ctas" class="cta-grid"></div>
-  </div>
-  <button id="restart" class="secondary">Run Another Diagnostic</button>
-</section>
+<section id="results" class="section hidden"><div class="container-narrow">
+<div class="result-hero">
+<div class="page-eyebrow" style="margin-bottom:12px">FRA Executive Growth Diagnostic</div>
+<h2 id="resultTitle"></h2>
+<div class="score-wrap"><div class="score" id="overallScore"></div><div style="text-align:left"><b id="band"></b><div id="stage" class="muted" style="color:#a3a3a3"></div></div></div>
+<p id="interpretation"></p>
+</div>
+<div class="panel" style="margin-bottom:24px"><h3>Dimension Scores</h3><div id="dimensions"></div></div>
+<div class="panel" style="margin-bottom:24px"><h3>Top Constraints</h3><div id="constraints"></div></div>
+<div class="panel" style="margin-bottom:24px"><h3>Priority Actions</h3><ol id="recommendations"></ol></div>
+<div class="panel" style="margin-bottom:24px"><h3>Your 30 / 60 / 90-Day Path</h3><div id="actionPath" class="timeline"></div></div>
+<div class="panel cta-panel"><div class="page-eyebrow" style="margin-bottom:12px">Next Steps</div>
+<h3 style="color:#fff">Turn the diagnostic into action.</h3>
+<div id="ctas" class="cta-grid"></div>
+</div>
+<div style="text-align:center;margin-top:28px"><button id="restart" class="btn btn-outline">Run Another Diagnostic</button></div>
+</div></section>
+
+<section class="cta-banner"><div class="container-narrow">
+<h2>Ready to build a FutureReady organization?</h2>
+<p>Book a 45-minute executive strategy session. No pitch. No pressure. Just a conversation about what's possible.</p>
+<a href="/contact" class="btn btn-primary">Find Your Biggest Performance Opportunity</a>
+</div></section>
 </main>
+
+<footer><div class="container">
+<div class="footer-grid">
+<div><span class="footer-brand-text">FutureReady Advisors</span><p class="footer-desc">Strategy. Execution. AI. Growth. Helping CEOs build organizations ready for the future.</p></div>
+<div><p class="footer-links-title">Navigation</p><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/services">Services</a></li><li><a href="/diagnostic">Diagnostic</a></li><li><a href="/contact">Contact</a></li></ul></div>
+<div><p class="footer-links-title">Contact</p><ul class="footer-links"><li>Nationwide</li><li><a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p class="footer-copy">© 2026 FutureReady Advisors. All rights reserved.</p></div>
+</div></footer>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Scroll-to-top (matches site)
+var s=document.getElementById('scrollTop');if(s){window.addEventListener('scroll',function(){if(window.scrollY>300){s.classList.add('visible')}else{s.classList.remove('visible')}})}
+</script>
+<script>
+// CTA click tracking (matches site) — logs to Vercel Analytics + /api/event dashboard
+(function(){
+  var SELECTOR = '.btn-primary,.btn-secondary,.nav-cta,.cta-banner,.btn';
+  function track(e){
+    var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+    if(!el) return;
+    try{
+      var cls = (el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className) || '';
+      var href = el.getAttribute('href') || '';
+      var txt = (el.textContent || '').trim().slice(0, 60);
+      try{ window.va('event', { name: 'cta_click', data: { page: location.pathname, cta: cls, href: href, text: txt } }); }catch(_){}
+      try{ fetch('/api/event', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ type:'cta_click', page:location.pathname, cta: cls, href: href, text: txt }) }).catch(function(){}); }catch(_){}
+    }catch(_){}
+  }
+  document.addEventListener('click', track, true);
+})();
+</script>
 <script src="./app.js"></script>
 </body></html>
