@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FRA Executive Growth Diagnostic</title>
+<meta name="description" content="Identify your biggest growth, AI, execution, or revenue constraint in minutes.">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="nav"><div class="brand">FutureReady <span>Advisors</span></div><a href="https://futurereadyus.com">futurereadyus.com</a></header>
+<main>
+<section id="hero" class="hero">
+  <div class="eyebrow">FREE EXECUTIVE DIAGNOSTIC</div>
+  <h1>Find the constraint holding back your next stage of growth.</h1>
+  <p>Choose a diagnostic, answer a focused set of executive questions, and receive a prioritized action path.</p>
+  <div id="assessmentCards" class="cards"></div>
+</section>
+
+<section id="quiz" class="panel hidden">
+  <div class="progress"><span id="progressBar"></span></div>
+  <div class="eyebrow" id="quizEyebrow"></div>
+  <h2 id="questionText"></h2>
+  <div id="scale" class="scale"></div>
+  <div class="quiz-actions"><button id="backBtn" class="secondary">Back</button><span id="counter"></span></div>
+</section>
+
+<section id="lead" class="panel hidden">
+  <div class="eyebrow">YOUR RESULTS ARE READY</div>
+  <h2>Where should we send your personalized action plan?</h2>
+  <p class="muted">You can also continue without submitting contact details.</p>
+  <form id="leadForm">
+    <div class="grid2">
+      <input name="name" placeholder="Name"><input name="email" type="email" placeholder="Work email">
+      <input name="company" placeholder="Company"><input name="role" placeholder="Role">
+      <input name="company_size" placeholder="Company size"><input name="primary_challenge" placeholder="Primary challenge">
+    </div>
+    <label class="consent"><input type="checkbox" name="consent"> <span id="consentText"></span></label>
+    <div class="row"><button type="submit">Show My Results</button><button id="skipLead" type="button" class="secondary">Skip</button></div>
+  </form>
+</section>
+
+<section id="results" class="hidden">
+  <div class="result-hero">
+    <div class="eyebrow">FRA EXECUTIVE GROWTH DIAGNOSTIC</div>
+    <h2 id="resultTitle"></h2>
+    <div class="score-wrap"><div class="score" id="overallScore"></div><div><b id="band"></b><div id="stage" class="muted"></div></div></div>
+    <p id="interpretation"></p>
+  </div>
+  <div class="panel"><h3>Dimension scores</h3><div id="dimensions"></div></div>
+  <div class="panel"><h3>Top constraints</h3><div id="constraints"></div></div>
+  <div class="panel"><h3>Priority actions</h3><ol id="recommendations"></ol></div>
+  <div class="panel"><h3>Your 30 / 60 / 90-day path</h3><div id="actionPath" class="timeline"></div></div>
+  <div class="panel cta-panel">
+    <div class="eyebrow">NEXT STEPS</div>
+    <h3>Turn the diagnostic into action.</h3>
+    <div id="ctas" class="cta-grid"></div>
+  </div>
+  <button id="restart" class="secondary">Run Another Diagnostic</button>
+</section>
+</main>
+<script src="./app.js"></script>
+</body></html>

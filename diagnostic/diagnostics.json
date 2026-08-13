@@ -1,0 +1,428 @@
+{
+  "brand": {
+    "company": "FutureReady Advisors",
+    "site": "https://futurereadyus.com",
+    "product": "FRA Executive Growth Diagnostic",
+    "tagline": "Diagnose the constraint. Prioritize the next move."
+  },
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "labels": {
+      "1": "Not true today",
+      "2": "Rarely true",
+      "3": "Partially true",
+      "4": "Mostly true",
+      "5": "Consistently true"
+    }
+  },
+  "bands": [
+    {
+      "min": 0,
+      "max": 39.99,
+      "label": "Critical Constraint",
+      "stage": "Stabilize",
+      "message": "Foundational gaps are likely suppressing performance. Focus on a small number of high-leverage corrections before adding complexity."
+    },
+    {
+      "min": 40,
+      "max": 59.99,
+      "label": "Developing",
+      "stage": "Align",
+      "message": "The organization has useful building blocks, but inconsistent alignment or discipline is limiting results."
+    },
+    {
+      "min": 60,
+      "max": 79.99,
+      "label": "Advancing",
+      "stage": "Accelerate",
+      "message": "Core practices are working. The opportunity is to remove friction, increase visibility, and scale what is already producing value."
+    },
+    {
+      "min": 80,
+      "max": 100,
+      "label": "FutureReady",
+      "stage": "Transform",
+      "message": "The organization has strong foundations. Focus on compounding advantages, faster learning loops, and scalable AI-enabled execution."
+    }
+  ],
+  "ctas": [
+    {
+      "step": 1,
+      "title": "Download Your Personalized Executive Action Plan",
+      "url": "#download",
+      "type": "download"
+    },
+    {
+      "step": 2,
+      "title": "Schedule an AI Transformation Consultation",
+      "url": "https://futurereadyus.com/contact",
+      "type": "consultation"
+    },
+    {
+      "step": 3,
+      "title": "Book a 45-Minute FutureReady Strategy Session",
+      "url": "https://futurereadyus.com/contact",
+      "type": "strategy-session"
+    }
+  ],
+  "leadCapture": {
+    "fields": [
+      "name",
+      "email",
+      "company",
+      "role",
+      "company_size",
+      "primary_challenge"
+    ],
+    "consentText": "By submitting, you agree that FutureReady Advisors may contact you about your diagnostic results and relevant services.",
+    "webhookEnv": "FRA_LEAD_WEBHOOK_URL"
+  },
+  "assessments": [
+    {
+      "title": "FutureReady Growth Architecture\u2122 Scorecard",
+      "short": "Growth Architecture",
+      "description": "Grades strategy, revenue, operations, and AI alignment.",
+      "dimensions": [
+        "Strategy",
+        "Revenue",
+        "Operations",
+        "AI Alignment"
+      ],
+      "id": "growth-architecture",
+      "questions": [
+        {
+          "id": "growth-architecture-01",
+          "dimension": "Strategy",
+          "text": "Our leadership team has a clearly documented 12\u201324 month growth strategy.",
+          "weight": 1.2
+        },
+        {
+          "id": "growth-architecture-02",
+          "dimension": "Strategy",
+          "text": "Strategic priorities translate into measurable quarterly outcomes.",
+          "weight": 1.1
+        },
+        {
+          "id": "growth-architecture-03",
+          "dimension": "Strategy",
+          "text": "Leaders consistently agree on the top three enterprise priorities.",
+          "weight": 1.0
+        },
+        {
+          "id": "growth-architecture-04",
+          "dimension": "Revenue",
+          "text": "We know the primary constraints limiting revenue growth.",
+          "weight": 1.2
+        },
+        {
+          "id": "growth-architecture-05",
+          "dimension": "Revenue",
+          "text": "Our pipeline, conversion, retention, and expansion metrics are visible to leadership.",
+          "weight": 1.1
+        },
+        {
+          "id": "growth-architecture-06",
+          "dimension": "Revenue",
+          "text": "Sales and marketing operate from shared definitions and targets.",
+          "weight": 0.9
+        },
+        {
+          "id": "growth-architecture-07",
+          "dimension": "Operations",
+          "text": "Critical initiatives have clear owners, deadlines, dependencies, and success measures.",
+          "weight": 1.2
+        },
+        {
+          "id": "growth-architecture-08",
+          "dimension": "Operations",
+          "text": "Operational bottlenecks are identified and resolved systematically.",
+          "weight": 1.0
+        },
+        {
+          "id": "growth-architecture-09",
+          "dimension": "Operations",
+          "text": "Leadership has reliable visibility into execution without excessive meetings.",
+          "weight": 1.0
+        },
+        {
+          "id": "growth-architecture-10",
+          "dimension": "AI Alignment",
+          "text": "AI initiatives are tied to business outcomes rather than experimentation alone.",
+          "weight": 1.2
+        },
+        {
+          "id": "growth-architecture-11",
+          "dimension": "AI Alignment",
+          "text": "We have prioritized workflows where AI can improve revenue, margin, speed, or customer experience.",
+          "weight": 1.1
+        },
+        {
+          "id": "growth-architecture-12",
+          "dimension": "AI Alignment",
+          "text": "AI governance, ownership, and adoption responsibilities are defined.",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "title": "AI Adoption Readiness Optimizer",
+      "short": "AI Readiness",
+      "description": "Scores readiness across business value, data, workflow, people, and governance.",
+      "dimensions": [
+        "Business Value",
+        "Data & Systems",
+        "Workflow",
+        "People",
+        "Governance"
+      ],
+      "id": "ai-readiness",
+      "questions": [
+        {
+          "id": "ai-readiness-01",
+          "dimension": "Business Value",
+          "text": "We have identified specific business outcomes AI should improve.",
+          "weight": 1.2
+        },
+        {
+          "id": "ai-readiness-02",
+          "dimension": "Business Value",
+          "text": "AI use cases are prioritized using value, feasibility, risk, and time-to-impact.",
+          "weight": 1.2
+        },
+        {
+          "id": "ai-readiness-03",
+          "dimension": "Data & Systems",
+          "text": "The data required for priority AI use cases is accessible and sufficiently reliable.",
+          "weight": 1.2
+        },
+        {
+          "id": "ai-readiness-04",
+          "dimension": "Data & Systems",
+          "text": "Core systems can integrate with AI tools through APIs, automation, or secure workflows.",
+          "weight": 1.0
+        },
+        {
+          "id": "ai-readiness-05",
+          "dimension": "Workflow",
+          "text": "Priority workflows are documented well enough to automate or augment.",
+          "weight": 1.1
+        },
+        {
+          "id": "ai-readiness-06",
+          "dimension": "Workflow",
+          "text": "We measure baseline cycle time, cost, quality, or conversion before implementing AI.",
+          "weight": 1.0
+        },
+        {
+          "id": "ai-readiness-07",
+          "dimension": "People",
+          "text": "Executives and functional leaders understand where AI can and cannot create value.",
+          "weight": 1.0
+        },
+        {
+          "id": "ai-readiness-08",
+          "dimension": "People",
+          "text": "Employees receive practical AI training relevant to their work.",
+          "weight": 1.0
+        },
+        {
+          "id": "ai-readiness-09",
+          "dimension": "People",
+          "text": "There are accountable owners for adoption and change management.",
+          "weight": 1.1
+        },
+        {
+          "id": "ai-readiness-10",
+          "dimension": "Governance",
+          "text": "Policies exist for privacy, security, human review, and acceptable AI use.",
+          "weight": 1.2
+        },
+        {
+          "id": "ai-readiness-11",
+          "dimension": "Governance",
+          "text": "We have a process to evaluate AI vendors, models, and risks.",
+          "weight": 1.0
+        },
+        {
+          "id": "ai-readiness-12",
+          "dimension": "Governance",
+          "text": "AI performance and business impact are reviewed after deployment.",
+          "weight": 1.1
+        }
+      ]
+    },
+    {
+      "title": "Execution Gap Optimizer",
+      "short": "Execution Gap",
+      "description": "Measures strategy-to-delivery friction and execution discipline.",
+      "dimensions": [
+        "Clarity",
+        "Ownership",
+        "Cadence",
+        "Visibility"
+      ],
+      "id": "execution-gap",
+      "questions": [
+        {
+          "id": "execution-gap-01",
+          "dimension": "Clarity",
+          "text": "Teams can explain how their work connects to enterprise priorities.",
+          "weight": 1.1
+        },
+        {
+          "id": "execution-gap-02",
+          "dimension": "Clarity",
+          "text": "Major initiatives have clear definitions of done and measurable outcomes.",
+          "weight": 1.1
+        },
+        {
+          "id": "execution-gap-03",
+          "dimension": "Clarity",
+          "text": "Priority changes are communicated quickly and consistently.",
+          "weight": 0.9
+        },
+        {
+          "id": "execution-gap-04",
+          "dimension": "Ownership",
+          "text": "Every critical initiative has one accountable executive owner.",
+          "weight": 1.2
+        },
+        {
+          "id": "execution-gap-05",
+          "dimension": "Ownership",
+          "text": "Decision rights are explicit enough to prevent unnecessary escalation.",
+          "weight": 1.1
+        },
+        {
+          "id": "execution-gap-06",
+          "dimension": "Ownership",
+          "text": "Cross-functional dependencies have named owners.",
+          "weight": 1.0
+        },
+        {
+          "id": "execution-gap-07",
+          "dimension": "Cadence",
+          "text": "Operating reviews focus on decisions, blockers, and corrective actions.",
+          "weight": 1.1
+        },
+        {
+          "id": "execution-gap-08",
+          "dimension": "Cadence",
+          "text": "Problems are surfaced early rather than near deadlines.",
+          "weight": 1.1
+        },
+        {
+          "id": "execution-gap-09",
+          "dimension": "Cadence",
+          "text": "Teams close action items reliably between leadership meetings.",
+          "weight": 1.0
+        },
+        {
+          "id": "execution-gap-10",
+          "dimension": "Visibility",
+          "text": "Leadership can see current status, risks, and business impact in one view.",
+          "weight": 1.2
+        },
+        {
+          "id": "execution-gap-11",
+          "dimension": "Visibility",
+          "text": "KPIs are timely enough to support intervention before performance misses compound.",
+          "weight": 1.0
+        },
+        {
+          "id": "execution-gap-12",
+          "dimension": "Visibility",
+          "text": "We distinguish activity metrics from true outcome metrics.",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "title": "Revenue Leak Optimizer",
+      "short": "Revenue Leak",
+      "description": "Surfaces the highest-likelihood leakage points across acquisition, conversion, retention, and expansion.",
+      "dimensions": [
+        "Acquisition",
+        "Conversion",
+        "Retention",
+        "Expansion"
+      ],
+      "id": "revenue-leak",
+      "questions": [
+        {
+          "id": "revenue-leak-01",
+          "dimension": "Acquisition",
+          "text": "We can identify which channels produce qualified pipeline, not just leads.",
+          "weight": 1.1
+        },
+        {
+          "id": "revenue-leak-02",
+          "dimension": "Acquisition",
+          "text": "Cost of acquisition is measured by segment or channel.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-03",
+          "dimension": "Acquisition",
+          "text": "Lead response and follow-up standards are consistently met.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-04",
+          "dimension": "Conversion",
+          "text": "Pipeline stages have objective exit criteria.",
+          "weight": 1.1
+        },
+        {
+          "id": "revenue-leak-05",
+          "dimension": "Conversion",
+          "text": "We know conversion rates by stage and can explain major losses.",
+          "weight": 1.2
+        },
+        {
+          "id": "revenue-leak-06",
+          "dimension": "Conversion",
+          "text": "Sales cycle length and stalled opportunities are actively managed.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-07",
+          "dimension": "Retention",
+          "text": "We know the leading indicators of churn or non-renewal.",
+          "weight": 1.2
+        },
+        {
+          "id": "revenue-leak-08",
+          "dimension": "Retention",
+          "text": "Customer health and at-risk accounts are visible before renewal.",
+          "weight": 1.1
+        },
+        {
+          "id": "revenue-leak-09",
+          "dimension": "Retention",
+          "text": "Post-sale handoffs preserve the expectations established during sales.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-10",
+          "dimension": "Expansion",
+          "text": "We systematically identify cross-sell, upsell, and expansion opportunities.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-11",
+          "dimension": "Expansion",
+          "text": "Customer value realization is measured and communicated.",
+          "weight": 1.0
+        },
+        {
+          "id": "revenue-leak-12",
+          "dimension": "Expansion",
+          "text": "Account plans identify executive relationships, risks, and growth paths.",
+          "weight": 0.9
+        }
+      ]
+    }
+  ]
+}

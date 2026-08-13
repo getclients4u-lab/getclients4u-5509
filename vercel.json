@@ -40,6 +40,10 @@
       "dest": "/events/index.html"
     },
     {
+      "src": "^/diagnostic$",
+      "dest": "/diagnostic/index.html"
+    },
+    {
       "src": "^/api/analytics$",
       "dest": "/api/analytics.js"
     },
@@ -54,6 +58,10 @@
     {
       "src": "^/api/leads$",
       "dest": "/api/leads.js"
+    },
+    {
+      "src": "^/api/lead$",
+      "dest": "/api/lead.js"
     },
     {
       "src": "^/(.*\\..*)$",
