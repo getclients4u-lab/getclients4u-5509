@@ -24,6 +24,10 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.futurereadyus.com/about">
 <meta property="og:image" content="https://www.futurereadyus.com/logo-v2.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="318">
+<meta property="og:image:type" content="image/jpeg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:site_name" content="FutureReady Advisors">
 <meta property="og:locale" content="en_US">
 
@@ -40,34 +44,50 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About FutureReady Advisors",
-  "description": "Meet the FutureReady Advisors team of growth strategy specialists.",
-  "url": "https://www.futurereadyus.com/about",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "FutureReady Advisors",
-    "founders": [
-      {
-        "@type": "Person",
-        "name": "Robert Goldberg",
-        "jobTitle": "Partner - Growth Strategy",
-        "image": "https://www.futurereadyus.com/team/robert.jpg"
-      },
-      {
-        "@type": "Person",
-        "name": "Jack Lee",
-        "jobTitle": "Partner - Marketing, Operations & Execution",
-        "image": "https://www.futurereadyus.com/team/jack.jpg"
-      },
-      {
-        "@type": "Person",
-        "name": "Hoel Bautista",
-        "jobTitle": "Partner - AI, Technology & Digital Transformation",
-        "image": "https://www.futurereadyus.com/team/hoel.png"
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "About FutureReady Advisors",
+      "description": "Meet the FutureReady Advisors team of growth strategy specialists.",
+      "url": "https://www.futurereadyus.com/about",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "FutureReady Advisors",
+        "url": "https://www.futurereadyus.com",
+        "logo": "https://www.futurereadyus.com/logo-v2.jpg",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Robert Goldberg",
+            "jobTitle": "Partner - Growth Strategy",
+            "image": "https://www.futurereadyus.com/team/robert.jpg",
+            "worksFor": {"@type": "Organization", "name": "FutureReady Advisors"}
+          },
+          {
+            "@type": "Person",
+            "name": "Jack Lee",
+            "jobTitle": "Partner - Marketing, Operations & Execution",
+            "image": "https://www.futurereadyus.com/team/jack.jpg",
+            "worksFor": {"@type": "Organization", "name": "FutureReady Advisors"}
+          },
+          {
+            "@type": "Person",
+            "name": "Hoel Bautista",
+            "jobTitle": "Partner - AI, Technology & Digital Transformation",
+            "image": "https://www.futurereadyus.com/team/hoel.png",
+            "worksFor": {"@type": "Organization", "name": "FutureReady Advisors"}
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.futurereadyus.com/"},
+        {"@type": "ListItem", "position": 2, "name": "About", "item": "https://www.futurereadyus.com/about"}
+      ]
+    }
+  ]
 }
 </script>
 
@@ -172,7 +192,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 <h2>Three partners. One shared conviction.</h2>
 
 <article class="team-card">
-<img src="/team/robert.jpg" alt="Robert Goldberg - Partner, Growth Strategy at FutureReady Advisors" class="team-photo">
+<img src="/team/robert.jpg" alt="Robert Goldberg - Partner, Growth Strategy at FutureReady Advisors" class="team-photo" width="1024" height="1365" loading="lazy">
 <div>
 <h3 class="team-name">Robert Goldberg</h3>
 <p class="team-title">Partner · Growth Strategy</p>
@@ -187,7 +207,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 </article>
 
 <article class="team-card">
-<img src="/team/jack.jpg" alt="Jack Lee - Partner, Marketing & Operations at FutureReady Advisors" class="team-photo">
+<img src="/team/jack.jpg" alt="Jack Lee - Partner, Marketing & Operations at FutureReady Advisors" class="team-photo" width="1024" height="1365" loading="lazy">
 <div>
 <h3 class="team-name">Jack Lee</h3>
 <p class="team-title">Partner · Marketing, Operations & Execution</p>
@@ -202,7 +222,7 @@ footer{padding:60px 0 32px;background:#1a1a1a;color:#fff}
 </article>
 
 <article class="team-card">
-<img src="/team/hoel.png" alt="Hoel Bautista - Partner, AI & Technology at FutureReady Advisors" class="team-photo">
+<img src="/team/hoel.png" alt="Hoel Bautista - Partner, AI & Technology at FutureReady Advisors" class="team-photo" width="824" height="848" loading="lazy">
 <div>
 <h3 class="team-name">Hoel Bautista</h3>
 <p class="team-title">Partner · AI, Technology & Digital Transformation</p>

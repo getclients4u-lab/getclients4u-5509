@@ -44,6 +44,10 @@
       "dest": "/diagnostic/index.html"
     },
     {
+      "src": "^/(about|services|contact|admin|analytics|events|diagnostic)/$",
+      "dest": "/$1/index.html"
+    },
+    {
       "src": "^/api/analytics$",
       "dest": "/api/analytics.js"
     },
@@ -66,10 +70,6 @@
     {
       "src": "^/(.*\\..*)$",
       "dest": "/$1"
-    },
-    {
-      "src": "^/(.*)$",
-      "dest": "/index.html"
     }
   ]
 }
