@@ -55,7 +55,13 @@
     },
     {
       "src": "^/(about|services|contact|admin|analytics|events|diagnostic)/$",
-      "dest": "/$1/index.html"
+      "statusCode": 308,
+      "dest": "/$1"
+    },
+    {
+      "src": "^/(about|services|contact|admin|analytics|events|diagnostic)/index\\.html$",
+      "statusCode": 308,
+      "dest": "/$1"
     },
     {
       "src": "^/api/analytics$",
