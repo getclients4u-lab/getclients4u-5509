@@ -21,17 +21,17 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <meta property="og:description" content="Find the constraint holding back your next stage of growth. Four diagnostics, twelve questions each, a prioritized action path in minutes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.futurereadyus.com/diagnostic">
-<meta property="og:image" content="https://www.futurereadyus.com/logo-v2.jpg">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="318">
-<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image" content="https://www.futurereadyus.com/og-diagnostic.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:site_name" content="FutureReady Advisors">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Executive Growth Diagnostic — FutureReady Advisors">
 <meta name="twitter:description" content="Find the constraint holding back your next stage of growth. Four diagnostics, a prioritized action path in minutes.">
-<meta name="twitter:image" content="https://www.futurereadyus.com/logo-v2.jpg">
+<meta name="twitter:image" content="https://www.futurereadyus.com/og-diagnostic.png">
 <link rel="canonical" href="https://www.futurereadyus.com/diagnostic">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Free Executive Growth Diagnostic","description":"Identify your biggest growth, AI, execution, or revenue constraint with a free executive diagnostic from FutureReady Advisors.","url":"https://www.futurereadyus.com/diagnostic","publisher":{"@type":"Organization","name":"FutureReady Advisors","url":"https://www.futurereadyus.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the FutureReady executive growth diagnostic?","acceptedAnswer":{"@type":"Answer","text":"A free, ~3-minute assessment that scores your company across four dimensions — Growth Architecture, AI Readiness, Execution, and Revenue — and turns your answers into a prioritized action plan."}},{"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"About 3 minutes. Each of the four diagnostics has 12 questions answered on a simple 1–5 scale."}},{"@type":"Question","name":"What do I get when I finish?","acceptedAnswer":{"@type":"Answer","text":"An overall score, a performance band, dimension-by-dimension scores, your top constraints, priority actions, and a 30/60/90-day path — free, with no email required to see your results."}},{"@type":"Question","name":"Is the diagnostic really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. All four diagnostics are free, and you can view your results without submitting your contact details."}},{"@type":"Question","name":"Who should take it?","acceptedAnswer":{"@type":"Answer","text":"CEOs and executive teams of growing companies — typically $2M to $50M in revenue — who want a clear, prioritized next move."}}]}]}
@@ -115,6 +115,18 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <h3 style="color:#fff">Turn the diagnostic into action.</h3>
 <div id="ctas" class="cta-grid"></div>
 </div>
+<div class="panel" style="margin-bottom:24px">
+<div class="page-eyebrow" style="margin-bottom:12px">Share &amp; Align</div>
+<h3 style="font-size:1.25rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em">Bring your leadership team along</h3>
+<p class="muted" style="margin:0 0 16px;color:#a3a3a3">Share your score, or send the diagnostic to your team so everyone sees the same constraints.</p>
+<div class="share-row" style="display:flex;flex-wrap:wrap;gap:10px">
+<button class="btn btn-outline share-btn" data-share="linkedin">Share on LinkedIn</button>
+<button class="btn btn-outline share-btn" data-share="x">Post on X</button>
+<button class="btn btn-outline share-btn" data-share="facebook">Share on Facebook</button>
+<button class="btn btn-outline share-btn" data-share="copy">Copy Link</button>
+<button class="btn btn-outline share-btn" data-share="team">Send to Leadership Team</button>
+</div>
+</div>
 <div style="text-align:center;margin-top:28px"><button id="restart" class="btn btn-outline">Run Another Diagnostic</button></div>
 </div></section>
 
@@ -172,6 +184,46 @@ var s=document.getElementById('scrollTop');if(s){window.addEventListener('scroll
     }catch(_){}
   }
   document.addEventListener('click', track, true);
+})();
+</script>
+<script>
+// Diagnostic share buttons — pulls live score/band from the results DOM
+(function(){
+  var DIAG_URL = 'https://www.futurereadyus.com/diagnostic';
+  function shareState(){
+    var score = ((document.getElementById('overallScore')||{}).textContent||'').trim();
+    var band = ((document.getElementById('band')||{}).textContent||'').trim();
+    var text = score
+      ? 'I scored ' + score + '/100 (' + band + ') on the FutureReady executive growth diagnostic. Find what\'s holding your growth back in 3 minutes:'
+      : 'Find the constraint holding back your next stage of growth in 3 minutes:';
+    return { text: text };
+  }
+  function fire(kind, href){
+    try{ window.va('event', { name:'cta_click', data:{ page:location.pathname, cta:'share-'+kind, href:href||'', text:'' } }); }catch(_){}
+    try{ fetch('/api/event', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ type:'cta_click', page:location.pathname, cta:'share-'+kind, href:href||'', text:'' }) }).catch(function(){}); }catch(_){}
+  }
+  document.querySelectorAll('.share-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      var kind = b.getAttribute('data-share');
+      var s = shareState();
+      var link = null;
+      if(kind === 'linkedin'){ link = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(DIAG_URL); }
+      else if(kind === 'x'){ link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(s.text) + '&url=' + encodeURIComponent(DIAG_URL); }
+      else if(kind === 'facebook'){ link = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(DIAG_URL); }
+      else if(kind === 'copy'){
+        var payload = s.text + ' ' + DIAG_URL;
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(payload).catch(function(){}); }
+        b.textContent = 'Copied!';
+        setTimeout(function(){ b.textContent = 'Copy Link'; }, 1600);
+        fire(kind, '');
+        return;
+      }
+      else if(kind === 'team'){
+        link = 'mailto:?subject=' + encodeURIComponent('Our Executive Growth Diagnostic Results') + '&body=' + encodeURIComponent('Team — I ran the FutureReady executive growth diagnostic. ' + s.text + '\n\nTake it here: ' + DIAG_URL + '\n\nFutureReady Advisors | futurereadyus.com');
+      }
+      if(link){ window.open(link, '_blank', 'noopener,width=650,height=650'); fire(kind, link); }
+    });
+  });
 })();
 </script>
 <script src="/diagnostic/app.js"></script>
