@@ -50,8 +50,9 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <a href="/diagnostic">Diagnostic</a>
 <a href="/contact">Contact</a>
 <a href="/contact" class="nav-cta">Find Your Biggest Performance Opportunity</a>
+
 </div>
-</div></nav>
+<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 
 <main>
 <header class="page-header" id="hero"><div class="container">
@@ -227,4 +228,8 @@ var s=document.getElementById('scrollTop');if(s){window.addEventListener('scroll
 })();
 </script>
 <script src="/diagnostic/app.js"></script>
+
+<script>
+(function(){var t=document.getElementById('navToggle'),l=document.querySelector('.nav-links');if(t&&l){t.addEventListener('click',function(){var open=l.classList.toggle('open');t.classList.toggle('open',open);t.setAttribute('aria-expanded',open?'true':'false')});l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false')})})}})();
+</script>
 </body></html>
