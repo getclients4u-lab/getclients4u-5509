@@ -64,12 +64,16 @@
       "dest": "/diagnostic/index.html"
     },
     {
-      "src": "^/(about|services|contact|admin|analytics|events|diagnostic)/$",
+      "src": "^/sales-performance$",
+      "dest": "/sales-performance/index.html"
+    },
+    {
+      "src": "^/(about|services|contact|admin|analytics|events|diagnostic|sales-performance)/$",
       "statusCode": 308,
       "dest": "/$1"
     },
     {
-      "src": "^/(about|services|contact|admin|analytics|events|diagnostic)/index\\.html$",
+      "src": "^/(about|services|contact|admin|analytics|events|diagnostic|sales-performance)/index\\.html$",
       "statusCode": 308,
       "dest": "/$1"
     },

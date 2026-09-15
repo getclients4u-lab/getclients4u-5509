@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Vercel Web Analytics -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Vercel Speed Insights -->
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="rzTwV3tGWfM2kfmghne0Se3kJqSVPFgn3C5hKiqkpUg" />
+<title>Sales Performance Assessment — FutureReady Advisors</title>
+<meta name="description" content="Find what your best salespeople do differently and quantify what it's worth. Free sales performance assessment from FutureReady Advisors.">
+<meta name="keywords" content="sales performance, sales team assessment, revenue growth, top performer analysis, sales benchmarking, sales coaching">
+<meta name="author" content="FutureReady Advisors">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="US">
+<meta name="geo.placename" content="Nationwide">
+<meta property="og:title" content="Sales Performance Assessment — FutureReady Advisors">
+<meta property="og:description" content="Discover what your best salespeople do differently, measure what it's worth, and scale it across your organization.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.futurereadyus.com/sales-performance">
+<meta property="og:image" content="https://www.futurereadyus.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:site_name" content="FutureReady Advisors">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Performance Assessment — FutureReady Advisors">
+<meta name="twitter:description" content="Find what your best salespeople do differently. Measure what it's worth. Scale it across the organization.">
+<meta name="twitter:image" content="https://www.futurereadyus.com/og-card.png">
+<link rel="canonical" href="https://www.futurereadyus.com/sales-performance">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Sales Performance Assessment","description":"Find what your best salespeople do differently and quantify what it's worth with a free sales performance assessment from FutureReady Advisors.","url":"https://www.futurereadyus.com/sales-performance","publisher":{"@type":"Organization","name":"FutureReady Advisors","url":"https://www.futurereadyus.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the FutureReady sales performance assessment?","acceptedAnswer":{"@type":"Answer","text":"A free tool that analyzes your sales team's performance distribution — the gap between your top quartile and the rest — and quantifies what closing even part of that gap is worth in incremental revenue."}},{"@type":"Question","name":"How does it work?","acceptedAnswer":{"@type":"Answer","text":"Enter your sellers and their revenue. The assessment splits them into quartiles, measures the spread between top performers and the average, and models the value of a 1%, 5%, and 10% shift toward top-performer behavior."}},{"@type":"Question","name":"What do I get when I finish?","acceptedAnswer":{"@type":"Answer","text":"A performance distribution, a composite score, your top-quartile vs average gap, the dollar value of incremental improvement, and a prioritized action path — free, with no email required to see results."}},{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can run the assessment and view results without submitting contact details."}},{"@type":"Question","name":"Who should run it?","acceptedAnswer":{"@type":"Answer","text":"Sales leaders and CEOs of companies with a sales team of roughly four or more sellers who want to know what their best performers do differently — and what it's worth."}}]}]}
+</script>
+<link rel="stylesheet" href="/diagnostic/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* FRA sales-performance specific additions on top of the shared diagnostic styles */
+.toggle-mode{display:flex;gap:12px;margin:0 0 20px;flex-wrap:wrap}
+.toggle-mode button{flex:1;min-width:200px;padding:16px;background:#fafafa;border:1.5px solid #e5e5e5;border-radius:12px;cursor:pointer;font-family:inherit;text-align:left;transition:all .2s}
+.toggle-mode button.active{border-color:#c25e00;background:#fff5eb}
+.toggle-mode button b{display:block;font-size:.9375rem;margin-bottom:4px}
+.toggle-mode button small{font-size:.75rem;color:#737373}
+.roster-input{width:100%;min-height:180px;padding:14px 18px;border:1.5px solid #e5e5e5;border-radius:10px;font-size:.9375rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fafafa;resize:vertical;color:#1a1a1a;line-height:1.7}
+.roster-input:focus{outline:none;border-color:#c25e00;background:#fff}
+.hint{font-size:.8125rem;color:#737373;margin-top:8px}
+.hint code{background:#f5f5f5;padding:1px 6px;border-radius:4px;font-size:.75rem}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.kpi{padding:20px;background:#fafafa;border:1px solid #e5e5e5;border-radius:12px;text-align:center}
+.kpi .kpi-v{font-size:1.5rem;font-weight:700;color:#1a1a1a}
+.kpi .kpi-l{font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:#737373;margin-top:4px}
+.kpi.highlight{background:#fff5eb;border-color:#ffdcc4}
+.kpi.highlight .kpi-v{color:#c25e00}
+@media(max-width:768px){.kpi-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="container nav-inner">
+<a href="/" class="logo"><img src="/logo-v2.jpg" alt="FutureReady Advisors" style="height:40px"></a>
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/services">Services</a>
+<a href="/diagnostic">Diagnostic</a>
+<a href="/sales-performance">Sales Performance</a>
+<a href="/contact">Contact</a>
+<a href="/contact" class="nav-cta">Find Your Biggest Performance Opportunity</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+
+<main>
+<header class="page-header" id="hero"><div class="container">
+<div class="page-eyebrow">Sales Performance System</div>
+<h1>Find what your best salespeople do differently. <span style="color:#c25e00">Measure what it's worth.</span></h1>
+<p>We don't bring your sales organization someone else's best practices — we discover yours. Enter your sellers and see exactly what closing the gap between your top performers and the rest is worth.</p>
+<div class="hero-tags">
+<span class="hero-tag">Top-Quartile Analysis</span>
+<span class="hero-tag">Dollar-Quantified Gap</span>
+<span class="hero-tag">~2 Minutes</span>
+<span class="hero-tag">Free — No Email Required</span>
+</div>
+<a href="#input" class="btn btn-primary">Run Your Assessment</a>
+</div></header>
+
+<section id="input" class="section"><div class="container-narrow">
+<div class="panel">
+<div class="page-eyebrow" style="margin-bottom:12px">Step 1 — Your Team</div>
+<h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;margin-bottom:20px;letter-spacing:-.02em">Tell us about your sales organization</h2>
+<div class="toggle-mode" id="modeToggle">
+<button type="button" data-mode="simple" class="active"><b>Quick Estimate</b><small>Just average + top performer</small></button>
+<button type="button" data-mode="roster"><b>Full Roster</b><small>Paste every seller + revenue</small></button>
+</div>
+
+<div id="simpleMode">
+<div class="grid2">
+<input class="form-input" id="accountName" placeholder="Company name (optional)">
+<input class="form-input" id="headcount" type="number" min="4" placeholder="Number of salespeople">
+<input class="form-input" id="avgRevenue" type="number" placeholder="Average revenue per seller ($)">
+<input class="form-input" id="topRevenue" type="number" placeholder="Top performer revenue ($)">
+<input class="form-input" id="marginRate" type="number" step="0.01" min="0" max="1" placeholder="Margin rate (optional, 0–1)">
+</div>
+</div>
+
+<div id="rosterMode" class="hidden">
+<textarea class="roster-input" id="roster" placeholder="One seller per line:  name, revenue&#10;&#10;Alice, 1500000&#10;Bob, 1400000&#10;Carla, 1350000&#10;Dana, 1300000&#10;Evan, 1150000&#10;Fiona, 1100000&#10;Gabe, 1100000&#10;Holly, 1050000"></textarea>
+<div class="hint">Format: <code>name, revenue</code> per line. Minimum 4 sellers. Revenue can be annual bookings, ARR, or quota — just be consistent.</div>
+</div>
+
+<button class="btn btn-primary btn-block" id="runBtn" style="margin-top:20px">Run Assessment →</button>
+</div>
+</div></section>
+
+<section id="lead" class="section hidden"><div class="container-narrow">
+<div class="panel">
+<div class="page-eyebrow" style="margin-bottom:12px">Your Results Are Ready</div>
+<h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;margin-bottom:8px;letter-spacing:-.02em">Where should we send your personalized action plan?</h2>
+<p class="muted" style="margin-bottom:28px">You can also continue without submitting contact details.</p>
+<form id="leadForm">
+<div class="grid2">
+<input class="form-input" name="name" placeholder="Name">
+<input class="form-input" name="email" type="email" placeholder="Work email">
+<input class="form-input" name="company" placeholder="Company">
+<input class="form-input" name="role" placeholder="Role">
+<input class="form-input" name="company_size" placeholder="Sales team size">
+<input class="form-input" name="primary_challenge" placeholder="Primary challenge">
+</div>
+<label class="consent"><input type="checkbox" name="consent"> <span>I agree to be contacted by FutureReady Advisors about sales performance insights. We never share your data.</span></label>
+<div class="row">
+<button type="submit" class="form-submit">Show My Results</button>
+<button id="skipLead" type="button" class="btn btn-outline">Skip</button>
+</div>
+</form>
+</div>
+</div></section>
+
+<section id="results" class="section hidden"><div class="container-narrow">
+<div class="result-hero">
+<div class="page-eyebrow" style="margin-bottom:12px">Sales Performance Assessment</div>
+<h2 id="resultTitle"></h2>
+<div class="score-wrap"><div class="score" id="overallScore"></div><div style="text-align:left"><b id="band"></b><div id="stage" class="muted" style="color:#a3a3a3"></div></div></div>
+<p id="interpretation"></p>
+</div>
+<div class="panel" style="margin-bottom:24px"><h3>The Opportunity in Dollars</h3><div class="kpi-row" id="kpis"></div><p class="muted" id="kpiNote" style="font-size:.8125rem;margin:0"></p></div>
+<div class="panel" style="margin-bottom:24px"><h3>Performance Distribution</h3><div id="distribution"></div></div>
+<div class="panel" style="margin-bottom:24px"><h3>Value of Incremental Movement</h3><div id="improvement"></div><p class="muted" style="font-size:.8125rem;margin:0" id="improvementNote"></p></div>
+<div class="panel" style="margin-bottom:24px"><h3>Summary of Findings</h3><ul id="findings"></ul></div>
+<div class="panel cta-panel"><div class="page-eyebrow" style="margin-bottom:12px">Next Steps</div>
+<h3 style="color:#fff">Turn the gap into a system.</h3>
+<a href="/contact" class="btn btn-primary" style="width:100%;margin-top:16px">Book a Sales Performance Review</a>
+</div>
+<div style="text-align:center;margin-top:28px"><button id="restart" class="btn btn-outline">Run Again</button></div>
+</div></section>
+
+<section class="section" id="faq"><div class="container-narrow">
+<div class="panel">
+<div class="page-eyebrow" style="margin-bottom:12px">Methodology</div>
+<h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:700;margin-bottom:20px;letter-spacing:-.02em">Understand → Measure → Improve → Sustain</h2>
+<p class="muted" style="margin:0 0 16px">The Sales Performance System runs on four phases, anchored to your own evidence — not imported from someone else's framework.</p>
+<h3 style="font-weight:600;margin:16px 0 6px">1. Understand</h3>
+<p class="muted" style="margin:0 0 8px">Discover what your top performers actually do differently, and separate transferable practice from individual exceptionalism.</p>
+<h3 style="font-weight:600;margin:16px 0 6px">2. Measure</h3>
+<p class="muted" style="margin:0 0 8px">Quantify the performance gap between your top quartile and the rest — and put a dollar figure on closing it.</p>
+<h3 style="font-weight:600;margin:16px 0 6px">3. Improve</h3>
+<p class="muted" style="margin:0 0 8px">Translate proven practice into a repeatable playbook and peer roundtables anchored by your best performers.</p>
+<h3 style="font-weight:600;margin:16px 0 6px">4. Sustain</h3>
+<p class="muted" style="margin:0">Build a mentor network and continuous benchmark so improvement keeps compounding — without depending on us.</p>
+</div>
+</div></section>
+
+<section class="cta-banner"><div class="container-narrow">
+<h2>Ready to scale what your best people already do?</h2>
+<p>Book a 45-minute executive strategy session. No pitch. No pressure. Just a conversation about what's possible.</p>
+<a href="/contact" class="btn btn-primary">Find Your Biggest Performance Opportunity</a>
+</div></section>
+</main>
+
+<footer><div class="container">
+<div class="footer-grid">
+<div><span class="footer-brand-text">FutureReady Advisors</span><p class="footer-desc">Strategy. Execution. AI. Growth. Helping CEOs build organizations ready for the future.</p></div>
+<div><p class="footer-links-title">Navigation</p><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/services">Services</a></li><li><a href="/diagnostic">Diagnostic</a></li><li><a href="/sales-performance">Sales Performance</a></li><li><a href="/contact">Contact</a></li></ul></div>
+<div><p class="footer-links-title">Contact</p><ul class="footer-links"><li>Nationwide</li><li><a href="mailto:hello@futurereadyus.com">hello@futurereadyus.com</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p class="footer-copy">© 2026 FutureReady Advisors. All rights reserved.</p></div>
+</div></footer>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+var s=document.getElementById('scrollTop');if(s){window.addEventListener('scroll',function(){if(window.scrollY>300){s.classList.add('visible')}else{s.classList.remove('visible')}})}
+</script>
+<script>
+(function(){
+  var SELECTOR = '.btn-primary,.btn-secondary,.nav-cta,.cta-banner,.btn';
+  function track(e){
+    var el = e.target.closest ? e.target.closest(SELECTOR) : null;
+    if(!el) return;
+    try{
+      var cls = (el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className) || '';
+      var href = el.getAttribute('href') || '';
+      var txt = (el.textContent || '').trim().slice(0, 60);
+      try{ window.va('event', { name: 'cta_click', data: { page: location.pathname, cta: cls, href: href, text: txt } }); }catch(_){}
+      try{ fetch('/api/event', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ type:'cta_click', page:location.pathname, cta: cls, href: href, text: txt }) }).catch(function(){}); }catch(_){}
+    }catch(_){}
+  }
+  document.addEventListener('click', track, true);
+})();
+</script>
+<script src="/sales-performance/app.js"></script>
+<script>
+(function(){var t=document.getElementById('navToggle'),l=document.querySelector('.nav-links');if(t&&l){t.addEventListener('click',function(){var open=l.classList.toggle('open');t.classList.toggle('open',open);t.setAttribute('aria-expanded',open?'true':'false')});l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false')})})}})();
+</script>
+</body></html>
