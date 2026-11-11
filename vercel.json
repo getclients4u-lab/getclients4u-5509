@@ -13,22 +13,30 @@
   "routes": [
     {
       "src": "^/index\\.html$",
-      "headers": { "Location": "/" },
+      "headers": {
+        "Location": "/"
+      },
       "status": 301
     },
     {
       "src": "^/index\\.html/$",
-      "headers": { "Location": "/" },
+      "headers": {
+        "Location": "/"
+      },
       "status": 301
     },
     {
       "src": "^/index$",
-      "headers": { "Location": "/" },
+      "headers": {
+        "Location": "/"
+      },
       "status": 301
     },
     {
       "src": "^/index/$",
-      "headers": { "Location": "/" },
+      "headers": {
+        "Location": "/"
+      },
       "status": 301
     },
     {
@@ -104,6 +112,20 @@
     {
       "src": "^/404$",
       "statusCode": 404
+    },
+    {
+      "src": "^/command-center$",
+      "dest": "/command-center/index.html"
+    },
+    {
+      "src": "^/command-center/$",
+      "statusCode": 308,
+      "dest": "/command-center"
+    },
+    {
+      "src": "^/command-center/index\\.html$",
+      "statusCode": 308,
+      "dest": "/command-center"
     },
     {
       "src": "^/(.*\\..*)$",
