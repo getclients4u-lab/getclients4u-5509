@@ -1,0 +1,55 @@
+{
+  "generated": "2026-11-11T17:45:00Z",
+  "counts": {
+    "postings": 937,
+    "articles": 676,
+    "leadership": 32,
+    "signals": 5,
+    "hypotheses": 3
+  },
+  "ranges": {
+    "postings": {
+      "n": 937,
+      "min": "2026-05-14",
+      "max": "2026-10-25"
+    },
+    "articles": {
+      "n": 676,
+      "min": "2026-05-23",
+      "max": "2026-10-25"
+    },
+    "leadership": {
+      "n": 32,
+      "min": "2026-05-26",
+      "max": "2026-10-24"
+    },
+    "signals": {
+      "n": 5,
+      "min": "2026-09-09",
+      "max": "2026-11-05"
+    }
+  },
+  "companies": {
+    "Broadridge": 414,
+    "FIS": 199,
+    "SEI": 153,
+    "FNZ": 98,
+    "Apex Fintech Solutions": 42,
+    "BetaNXT": 31
+  },
+  "articles_by_company": {
+    "FIS": 208,
+    "SEI": 145,
+    "Broadridge": 137,
+    "Apex Fintech Solutions": 98,
+    "FNZ": 59,
+    "BetaNXT": 29
+  },
+  "files": {
+    "postings": "/data/postings.json",
+    "articles": "/data/articles.json",
+    "leadership": "/data/leadership.json",
+    "insights": "/data/insights.json",
+    "config": "/data/config.json"
+  }
+}

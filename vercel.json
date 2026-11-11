@@ -128,6 +128,19 @@
       "dest": "/command-center"
     },
     {
+      "src": "^/data$",
+      "dest": "/data/manifest.json"
+    },
+    {
+      "src": "^/data/$",
+      "statusCode": 308,
+      "dest": "/data"
+    },
+    {
+      "src": "^/data/(.*\\.json)$",
+      "dest": "/data/$1"
+    },
+    {
       "src": "^/(.*\\..*)$",
       "dest": "/$1"
     }
